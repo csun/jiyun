@@ -1,0 +1,22 @@
+---
+entryScene: title
+sceneSize: { width: 2560, height: 1440 }
+
+sprites:
+  title_bg: "images/title_bg.jpg"
+  forward_button: "images/forward_button.png"
+
+scenes:
+  title:
+    background: title_bg
+    actors:
+      - sprite: forward_button
+        position: { x: 2000, y: 1000 }
+
+        triggers:
+          onClick:
+            action: changeScene
+            data:
+              destination: flyaway
+
+  
