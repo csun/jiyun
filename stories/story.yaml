@@ -3,7 +3,27 @@ entryScene: title
 sceneSize: { width: 2560, height: 1440 }
 
 sprites:
+  jiyun: "images/jiyun.png"
   title_bg: "images/title_bg.jpg"
+
+  transformation_bg: "images/transformation_bg.jpg"
+  transformation_1977_button: "images/transformation_1977_button.png"
+  transformation_plane:
+    type: spritesheet
+    file: "images/transformation_plane.png"
+    frameCounts: { x: 7, y: 1 }
+    defaultFrame: { x: 0, y: 0 }
+    animations:
+      transform:
+        startFrame: { x: 0, y: 0 }
+        count: 5
+        fps: 0.5
+      blink:
+        startFrame: { x: 5, y: 0 }
+        count: 2
+        fps: 1
+        options:
+          loop: true
 
   immigration_bg: "images/immigration_bg.jpg"
   outside_immigration_bg: "images/outsideimmigration_bg.jpg"
@@ -40,7 +60,84 @@ scenes:
         triggers:
           onClick:
             action: changeScene
-            data: { destination: immigration }
+            data: { destination: transformation }
+
+  # transformation ========================================
+  transformation:
+    background: transformation_bg
+
+    camera:
+      position: { x: 0, y: 2347 }
+      triggers:
+        startTransformation:
+          action: startAnimation
+          delay: 1000
+          data: { name: panUp }
+      animations:
+        panUp:
+          frames:
+            - pan: { x: 0, y: -2347 }
+              time: 10000
+
+    actors:
+      - sprite: transformation_1977_button
+        position: { x: 1000, y: 3500 }
+        triggers:
+          onClick:
+            action: broadcastTrigger
+            data: { name: startTransformation }
+
+      - sprite: jiyun
+        scale: 0.2
+        position: { x: 1000, y: 2500 }
+        triggers:
+          startTransformation:
+            action: startAnimation
+            data: { name: fade }
+        animations:
+          fade:
+            frames:
+              - fadeRelative: 1
+                time: 1000
+
+      - sprite: transformation_plane
+        position: { x: 1000, y: 2300 }
+
+        triggers:
+          onLoad:
+            action: setHidden
+            data: true
+
+          startTransformation:
+            - action: setHidden
+              delay: 1000
+              data: false
+            - action: startSpriteAnimation
+              delay: 1000
+              data: { name: transform }
+            - action: startAnimation
+              delay: 1000
+              data: { name: flyUp }
+            - action: changeScene
+              delay: 17000
+              data: { destination: immigration }
+
+        animations:
+          flyUp:
+            frames:
+              - setPosition: { x: 1000, y: 2400 }
+                time: 2000
+              - setPosition: { x: 1000, y: 1800 }
+                time: 2000
+              - setPosition: { x: 800, y: 1400 }
+                time: 2000
+              - setPosition: { x: 600, y: 1000 }
+                time: 2000
+              - setPosition: { x: 400, y: 600 }
+                time: 2000
+              - setPosition: { x: 200, y: 200}
+                startSpriteAnimation: { name: blink }
+                time: 1
 
   # immigration ===========================================
   immigration:
@@ -60,7 +157,7 @@ scenes:
               maxActivations: 1
               data: { name: open }
             - action: changeScene
-              delay: 2500
+              delay: 3000
               maxActivations: 1
               data: { destination: outside_immigration }
 
@@ -68,7 +165,7 @@ scenes:
           open:
             frames:
               - moveRelative: { x: -600, y: 0 }
-                time: 1000
+                time: 2000
 
       # Right Door
       - sprite: immigration_door_right
@@ -88,7 +185,7 @@ scenes:
           open:
             frames:
               - moveRelative: { x: 600, y: 0 }
-                time: 1000
+                time: 2000
 
   # outside_immigration ===================================
   outside_immigration:
@@ -123,8 +220,16 @@ scenes:
         animations:
           flash:
             frames:
-              - setHidden: true
-                time: 400
               - setHidden: false
-                time: 400
+                time: 1000
+              - setHidden: true
+                time: 1000
+              - setHidden: false
+                time: 1000
+              - setHidden: true
+                time: 1000
+              - setHidden: false
+                time: 1000
+              - setHidden: true
+                time: 3000
             options: { loop: true }
