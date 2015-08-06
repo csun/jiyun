@@ -17,13 +17,16 @@ sprites:
       transform:
         startFrame: { x: 0, y: 0 }
         count: 5
-        fps: 0.5
+        fps: 0.75
       blink:
         startFrame: { x: 5, y: 0 }
         count: 2
         fps: 1
         options:
           loop: true
+
+  1977_bg: "images/1977_bg.jpg"
+  1977_button: "images/1977_button.png"
 
   immigration_bg: "images/immigration_bg.jpg"
   outside_immigration_bg: "images/outsideimmigration_bg.jpg"
@@ -71,21 +74,26 @@ scenes:
       triggers:
         startTransformation:
           action: startAnimation
-          delay: 1000
+          delay: 2000
           data: { name: panUp }
       animations:
         panUp:
           frames:
             - pan: { x: 0, y: -2347 }
-              time: 10000
+              time: 6666
+            - time: 3000
+            - fade: 1
+              time: 3000
 
     actors:
       - sprite: transformation_1977_button
         position: { x: 1000, y: 3500 }
         triggers:
           onClick:
-            action: broadcastTrigger
-            data: { name: startTransformation }
+            - action: broadcastTrigger
+              data: { name: startTransformation }
+            - action: setHidden
+              data: true
 
       - sprite: jiyun
         scale: 0.2
@@ -110,34 +118,64 @@ scenes:
 
           startTransformation:
             - action: setHidden
-              delay: 1000
+              delay: 2000
               data: false
             - action: startSpriteAnimation
-              delay: 1000
+              delay: 3000
               data: { name: transform }
             - action: startAnimation
-              delay: 1000
+              delay: 3000
               data: { name: flyUp }
             - action: changeScene
               delay: 17000
-              data: { destination: immigration }
+              data: { destination: 1977 }
 
         animations:
           flyUp:
             frames:
               - setPosition: { x: 1000, y: 2400 }
-                time: 2000
-              - setPosition: { x: 1000, y: 1800 }
-                time: 2000
+                time: 1333
+              - setPosition: { x: 1000, y: 1900 }
+                time: 1333
               - setPosition: { x: 800, y: 1400 }
-                time: 2000
+                time: 1333
               - setPosition: { x: 600, y: 1000 }
-                time: 2000
+                time: 1333
               - setPosition: { x: 400, y: 600 }
-                time: 2000
+                time: 1333
               - setPosition: { x: 200, y: 200}
                 startSpriteAnimation: { name: blink }
                 time: 1
+
+  # 1977 ==================================================
+  1977:
+    background: 1977_bg
+    actors:
+      - sprite: 1977_button
+        position: { x: 358, y: 432 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data: { name: blink }
+
+          onClick:
+            action: changeScene
+            data: { destination: immigration }
+
+        animations:
+          blink:
+            options:
+              loop: true
+            frames:
+              - setHidden: true
+                time: 500
+              - setHidden: false
+                time: 500
+              - setHidden: true
+                time: 500
+              - setHidden: false
+                time: 3000
 
   # immigration ===========================================
   immigration:
