@@ -1,5 +1,5 @@
 ---
-entryScene: title
+entryScene: red
 sceneSize: { width: 2560, height: 1440 }
 
 sprites:
@@ -28,13 +28,12 @@ sprites:
   1977_bg: "images/1977_bg.jpg"
   1977_button: "images/1977_button.png"
 
-  immigration_bg: "images/immigration_bg.jpg"
-  outside_immigration_bg: "images/outsideimmigration_bg.jpg"
-  red_bg: "images/red_bg.jpg"
 
+  immigration_bg: "images/immigration_bg.jpg"
   immigration_door_left: "images/immigration_door_left.jpg"
   immigration_door_right: "images/immigration_door_right.jpg"
 
+  outside_immigration_bg: "images/outsideimmigration_bg.jpg"
   outside_immigration_waving:
     type: spritesheet
     file: "images/outsideimmigration_waving_arms.png"
@@ -48,9 +47,17 @@ sprites:
         options:
           loop: true
 
+  red_bg: "images/red_bg.jpg"
   red_hair_flash: "images/red_hair_flash.png"
 
+  car_interior_bg: "images/car_interior_bg.jpg"
+
   forward_button: "images/forward_button.png"
+
+fonts:
+  default:
+    font: "30px Open Sans"
+    color: "#000000"
 
 scenes:
   # title =================================================
@@ -249,6 +256,14 @@ scenes:
   red:
     background: red_bg
     actors:
+      - sprite: forward_button
+        position: { x: 2000, y: 1000 }
+
+        triggers:
+          onClick:
+            action: changeScene
+            data: { destination: car_interior }
+
       - sprite: red_hair_flash
         position: { x: 600, y: 310 }
         triggers:
@@ -271,3 +286,27 @@ scenes:
               - setHidden: true
                 time: 3000
             options: { loop: true }
+
+  # car_interior ==========================================
+  car_interior:
+    background: car_interior_bg
+    texts:
+      - text: |
+          Not many people owned cars back then. It was early morning and the roads were empty.
+
+          I had dreamed of coming back to Korea since my grandparents brought me to New York at age six. It would be harder to learn English when I got older, they said. They knew I didn’t want to stay in New York but a kid belongs with her parents.
+
+          I was back! My heart was filled with joy but I was suddenly feeling shy. Could I speak Korean? Dad said, in order to succeed, my English needed to be better than Americans. So my parents spoke Korean and English to us and we answered mostly in English.
+
+          My brain was slowly shifting gears. I could understand a lot but I couldn’t seem to say what I wanted to say.
+        position: { x: 1800, y: 200 }
+        font: default
+        width: 600
+    actors:
+      - sprite: forward_button
+        position: { x: 2000, y: 1000 }
+
+        triggers:
+          onClick:
+            action: changeScene
+            data: { destination: red }
