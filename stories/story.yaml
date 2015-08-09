@@ -21,9 +21,21 @@ sprites:
       blink:
         startFrame: { x: 5, y: 0 }
         count: 2
-        fps: 1
+        fps: 0.5
         options:
           loop: true
+
+  planes_bg: "images/planes_bg.jpg"
+  planes_lights:
+    type: spritesheet
+    file: "images/planes_lights.png"
+    frameCounts: { x: 5, y: 1 }
+    defaultFrame: { x: 0, y: 0 }
+    animations:
+      blink:
+        startFrame: { x: 0, y: 0 }
+        count: 5
+        fps: 0.5
 
   1977_bg: "images/1977_bg.jpg"
   1977_button: "images/1977_button.png"
@@ -97,7 +109,7 @@ sprites:
       grow:
         startFrame: { x: 0, y: 0 }
         count: 6
-        fps: 1
+        fps: 3.5
 
 
   forward_button: "images/forward_button.png"
@@ -160,7 +172,7 @@ scenes:
         animations:
           fade:
             frames:
-              - fadeRelative: 1
+              - fade: 1
                 time: 1000
 
       - sprite: transformation_plane
@@ -183,7 +195,7 @@ scenes:
               data: { name: flyUp }
             - action: changeScene
               delay: 17000
-              data: { destination: 1977 }
+              data: { destination: planes }
 
         animations:
           flyUp:
@@ -201,6 +213,53 @@ scenes:
               - setPosition: { x: 200, y: 200}
                 startSpriteAnimation: { name: blink }
                 time: 1
+
+  # planes ================================================
+  planes:
+    background: planes_bg
+
+    camera:
+      triggers:
+        onLoad:
+          - action: startAnimation
+            delay: 16000
+            data: { name: fade }
+
+      animations:
+        fade:
+          frames:
+            - fade: 1
+              time: 2000
+
+    actors:
+      - sprite: planes_lights
+        position: { x: 524 , y: 76 }
+
+        triggers:
+          onLoad:
+            - action: startSpriteAnimation
+              delay: 4000
+              data: { name: blink }
+            - action: startAnimation
+              data: { name: blink }
+            - action: changeScene
+              delay: 18000
+              data: { destination: 1977 }
+
+        animations:
+          blink:
+            options: { loop: true }
+            frames:
+              - setHidden: true
+                time: 400
+              - setHidden: false
+                time: 400
+              - setHidden: true
+                time: 400
+              - setHidden: false
+                time: 400
+              - setHidden: true
+                time: 400
 
   # 1977 ==================================================
   1977:
@@ -283,6 +342,23 @@ scenes:
   # outside_immigration ===================================
   outside_immigration:
     background: outside_immigration_bg
+
+    camera:
+      zoom: 1
+      position: { x: -1200, y: -500 }
+
+      triggers:
+        onLoad:
+          - action: startAnimation
+            delay: 1000
+            data: { name: slideOver }
+
+      animations:
+        slideOver:
+          frames: 
+            - pan: { x: 1500, y: 0 }
+              time: 3000
+
     actors:
       - sprite: outside_immigration_waving
         position: { x: 1337, y: 119 }
@@ -447,8 +523,8 @@ scenes:
             - action: setHidden
               data: true
             - action: setHidden
-              delay: 3000
+              delay: 1000
               data: false
             - action: startSpriteAnimation
-              delay: 3000
+              delay: 1000
               data: { name: grow }
