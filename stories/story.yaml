@@ -1,5 +1,5 @@
 ---
-entryScene: title
+entryScene: drive
 sceneSize: { width: 2560, height: 1440 }
 
 sprites:
@@ -22,8 +22,6 @@ sprites:
         startFrame: { x: 5, y: 0 }
         count: 2
         fps: 0.5
-        options:
-          loop: true
 
   planes_bg: "images/planes_bg.jpg"
   planes_lights:
@@ -32,7 +30,7 @@ sprites:
     frameCounts: { x: 5, y: 1 }
     defaultFrame: { x: 0, y: 0 }
     animations:
-      blink:
+      move:
         startFrame: { x: 0, y: 0 }
         count: 5
         fps: 0.5
@@ -56,7 +54,6 @@ sprites:
         startFrame: { x: 0, y: 0 }
         count: 2
         fps: 2
-        options: { loop: true }
 
   red_bg: "images/red_bg.jpg"
   red_hair_flash: "images/red_hair_flash.png"
@@ -75,7 +72,6 @@ sprites:
         startFrame: { x: 0, y: 0 }
         count: 2
         fps: 2
-        options: { loop: true }
   busy_street_bike:
     type: spritesheet
     file: "images/busy_street_bike.png"
@@ -86,7 +82,6 @@ sprites:
         startFrame: { x: 0, y: 0 }
         count: 2
         fps: 2
-        options: { loop: true }
   busy_street_women:
     type: spritesheet
     file: "images/busy_street_women.png"
@@ -97,7 +92,6 @@ sprites:
         startFrame: { x: 0, y: 0 }
         count: 2
         fps: 2
-        options: { loop: true }
 
   house_bg: "images/house_bg.jpg"
   house_rainbow:
@@ -111,6 +105,11 @@ sprites:
         count: 6
         fps: 3.5
 
+  drive_road1: "images/drive_road1.png"
+  drive_road2: "images/drive_road2.png"
+  drive_mountains: "images/drive_mountains.jpg"
+  drive_buildings: "images/drive_buildings.png"
+  drive_car: "images/drive_car.png"
 
   forward_button: "images/forward_button.png"
 
@@ -211,7 +210,9 @@ scenes:
               - setPosition: { x: 400, y: 600 }
                 time: 1333
               - setPosition: { x: 200, y: 200}
-                startSpriteAnimation: { name: blink }
+                startSpriteAnimation:
+                  name: blink
+                  options: { loop: true }
                 time: 1
 
   # planes ================================================
@@ -239,16 +240,17 @@ scenes:
           onLoad:
             - action: startSpriteAnimation
               delay: 4000
-              data: { name: blink }
+              data: { name: move }
             - action: startAnimation
-              data: { name: blink }
+              data:
+                name: blink
+                options: { loop: true }
             - action: changeScene
               delay: 18000
               data: { destination: 1977 }
 
         animations:
           blink:
-            options: { loop: true }
             frames:
               - setHidden: true
                 time: 400
@@ -271,7 +273,9 @@ scenes:
         triggers:
           onLoad:
             action: startAnimation
-            data: { name: blink }
+            data: 
+              name: blink
+              options: { loop: true }
 
           onClick:
             action: changeScene
@@ -279,8 +283,6 @@ scenes:
 
         animations:
           blink:
-            options:
-              loop: true
             frames:
               - setHidden: true
                 time: 500
@@ -365,7 +367,9 @@ scenes:
         triggers:
           onLoad:
             action: startSpriteAnimation
-            data: { name: wave }
+            data: 
+              name: wave
+              options: { loop: true }
 
       - sprite: forward_button
         position: { x: 2000, y: 1000 }
@@ -393,7 +397,9 @@ scenes:
         triggers:
           onLoad:
             action: startAnimation
-            data: { name: flash }
+            data: 
+              name: flash
+              options: { loop: true }
         animations:
           flash:
             frames:
@@ -409,7 +415,6 @@ scenes:
                 time: 1000
               - setHidden: true
                 time: 3000
-            options: { loop: true }
 
   # car_interior ==========================================
   car_interior:
@@ -445,7 +450,9 @@ scenes:
         triggers:
           onLoad:
             - action: startSpriteAnimation
-              data: { name: move }
+              data:
+                name: move
+                options: { loop: true }
             - action: startAnimation
               data: { name: move }
 
@@ -469,7 +476,10 @@ scenes:
         triggers:
           onLoad:
             - action: startSpriteAnimation
-              data: { name: move }
+              data:
+                name: move
+                options: { loop: true }
+
             - action: startAnimation
               data: { name: move }
 
@@ -485,7 +495,9 @@ scenes:
         triggers:
           onLoad:
             - action: startSpriteAnimation
-              data: { name: move }
+              data:
+                name: move
+                options: { loop: true }
             - action: startAnimation
               data: { name: move }
 
@@ -528,3 +540,85 @@ scenes:
             - action: startSpriteAnimation
               delay: 1000
               data: { name: grow }
+
+      - sprite: forward_button
+        position: { x: 2000, y: 1000 }
+
+        triggers:
+          onClick:
+            action: changeScene
+            data: { destination: drive }
+
+  # drive =================================================
+  drive:
+    background: 0xFFFFFF
+
+    actors:
+      - sprite: drive_mountains
+        position: { x: 0, y: 0 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data: { name: move }
+
+        animations:
+          move:
+            frames:
+              - moveRelative: { x: -2683, y: 0 }
+                time: 20000
+
+      - sprite: drive_buildings
+        position: { x: 0, y: 176 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data: { name: move }
+
+        animations:
+          move:
+            frames:
+              - moveRelative: { x: -13167, y: 0 }
+                time: 20000
+
+      - sprite: drive_road1
+        position: { x: 0, y: 1026 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data:
+              name: roll
+              options: { loop: true }
+
+        animations:
+          roll:
+            frames:
+              - moveRelative: { x: -2560, y: 0 }
+                time: 1000
+              - setPosition: { x: 2560, y: 1026 }
+                time: 0
+              - moveRelative: { x: -2560, y: 0 }
+                time: 1000
+
+      - sprite: drive_road2
+        position: { x: 2560, y: 1026 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data:
+              name: roll
+              options: { loop: true }
+
+        animations:
+          roll:
+            frames:
+              - moveRelative: { x: -5120, y: 0 }
+                time: 2000
+              - setPosition: { x: 2560, y: 1026 }
+                time: 0
+
+      - sprite: drive_car
+        position: { x: 1000, y: 1110 }
