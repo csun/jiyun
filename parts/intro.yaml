@@ -1,0 +1,8 @@
+sprites:
+  intro_bg: "images/intro_bg.jpg"
+
+scenes:
+  intro:
+    background: intro_bg
+    nextScene: transformation
+

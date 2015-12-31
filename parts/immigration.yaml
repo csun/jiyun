@@ -1,0 +1,62 @@
+sprites:
+  immigration_bg: "images/immigration_bg.jpg"
+  immigration_left_door: "images/immigration_left_door.png"
+  immigration_right_door: "images/immigration_right_door.png"
+
+scenes:
+  immigration:
+    background: immigration_bg
+    nextScene: outside_immigration
+
+    disabledControls:
+      - next_scene_control
+
+    actors:
+      - sprite: immigration_left_door
+        position: { x: 657, y: 208 }
+
+        triggers:
+          onClick:
+            action: broadcastTrigger
+            data: { name: openDoors }
+
+          openDoors:
+            - action: startAnimation
+              maxActivations: 1
+              data: { name: open }
+            - action: nextScene
+              delay: 3000
+              maxActivations: 1
+
+        animations:
+          open:
+            frames:
+              - moveRelative: { x: -600, y: 0 }
+                time: 2000
+
+      - sprite: immigration_right_door
+        position: { x: 1358, y: 208 }
+
+        triggers:
+          onClick:
+            action: broadcastTrigger
+            data: { name: openDoors }
+
+          openDoors:
+            - action: startAnimation
+              maxActivations: 1
+              data: { name: open }
+
+        animations:
+          open:
+            frames:
+              - moveRelative: { x: 600, y: 0 }
+                time: 2000
+
+      - sprite: next_button
+        position: { x: 2290, y: 1280 }
+
+        triggers:
+          onClick:
+            action: broadcastTrigger
+            data: { name: openDoors }

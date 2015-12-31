@@ -1,0 +1,7 @@
+sprites:
+  dedication_bg: "images/dedication_bg.jpg"
+
+scenes:
+  dedication:
+    background: dedication_bg
+    nextScene: intro

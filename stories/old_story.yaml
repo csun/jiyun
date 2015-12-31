@@ -1,0 +1,682 @@
+---
+entryScene: title
+sceneSize: { width: 2560, height: 1440 }
+
+sprites:
+  jiyun: "images/jiyun.png"
+  forward_button: "images/forward_button.png"
+
+  title_bg: "images/title_bg.jpg"
+
+  transformation_bg: "images/transformation_bg.jpg"
+  transformation_1977_button: "images/transformation_1977_button.png"
+  transformation_plane:
+    type: spritesheet
+    file: "images/transformation_plane.png"
+    frameCounts: { x: 7, y: 1 }
+    animations:
+      transform:
+        startFrame: { x: 0, y: 0 }
+        count: 5
+        fps: 0.75
+      blink:
+        startFrame: { x: 5, y: 0 }
+        count: 2
+        fps: 0.5
+
+  planes_bg: "images/planes_bg.jpg"
+  planes_lights:
+    type: spritesheet
+    file: "images/planes_lights.png"
+    frameCounts: { x: 5, y: 1 }
+    animations:
+      move:
+        startFrame: { x: 0, y: 0 }
+        count: 5
+        fps: 0.5
+
+  1977_bg: "images/1977_bg.jpg"
+  1977_button: "images/1977_button.png"
+
+
+  immigration_bg: "images/immigration_bg.jpg"
+  immigration_door_left: "images/immigration_door_left.jpg"
+  immigration_door_right: "images/immigration_door_right.jpg"
+
+  outside_immigration_bg: "images/outsideimmigration_bg.jpg"
+  outside_immigration_waving:
+    type: spritesheet
+    file: "images/outsideimmigration_waving_arms.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      wave:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 2
+
+  red_bg: "images/red_bg.jpg"
+  red_hair_flash: "images/red_hair_flash.png"
+
+  car_interior_bg: "images/car_interior_bg.jpg"
+
+  busy_street_bg: "images/busy_street_bg.jpg"
+  busy_street_wall: "images/busy_street_wall.png"
+  busy_street_cart:
+    type: spritesheet
+    file: "images/busy_street_cart.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      move:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 2
+  busy_street_bike:
+    type: spritesheet
+    file: "images/busy_street_bike.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      move:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 2
+  busy_street_women:
+    type: spritesheet
+    file: "images/busy_street_women.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      move:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 2
+
+  house_bg: "images/house_bg.jpg"
+  house_rainbow:
+    type: spritesheet
+    file: "images/house_rainbow.png"
+    frameCounts: { x: 6, y: 1 }
+    animations:
+      grow:
+        startFrame: { x: 0, y: 0 }
+        count: 6
+        fps: 3.5
+
+  drive_road1: "images/drive_road1.png"
+  drive_road2: "images/drive_road2.png"
+  drive_mountains: "images/drive_mountains.jpg"
+  drive_buildings: "images/drive_buildings.png"
+  drive_car: "images/drive_car.png"
+
+  bow_bg: "images/bow_bg.jpg"
+  bow_jiyun_bubble: "images/bow_jiyun_bubble.png"
+  bow_jiyun:
+    type: spritesheet
+    file: "images/bow_jiyun.png"
+    frameCounts: { x: 7, y: 1 }
+    animations:
+      bow:
+        startFrame: { x: 0, y: 0 }
+        count: 7
+        fps: 6
+  bow_family_bubbles:
+    type: spritesheet
+    file: "images/bow_family_bubbles.png"
+    frameCounts: { x: 4, y: 1}
+    animations:
+      appear:
+        startFrame: { x: 0, y: 0 }
+        count: 4
+        fps: 1
+
+fonts:
+  default:
+    font: "30px Open Sans"
+    color: "#000000"
+
+scenes:
+  # title =================================================
+  title:
+    background: title_bg
+    actors:
+      - sprite: forward_button
+        position: { x: 2000, y: 1000 }
+
+        triggers:
+          onClick:
+            action: changeScene
+            data: { destination: transformation }
+
+  # transformation ========================================
+  transformation:
+    background: transformation_bg
+
+    camera:
+      position: { x: 0, y: 2347 }
+      triggers:
+        startTransformation:
+          action: startAnimation
+          delay: 2000
+          data: { name: panUp }
+      animations:
+        panUp:
+          frames:
+            - pan: { x: 0, y: -2347 }
+              time: 6666
+            - time: 3000
+            - fade: 1
+              time: 3000
+
+    actors:
+      - sprite: transformation_1977_button
+        position: { x: 1000, y: 3500 }
+        triggers:
+          onClick:
+            - action: broadcastTrigger
+              data: { name: startTransformation }
+            - action: setHidden
+              data: true
+
+      - sprite: jiyun
+        scale: 0.2
+        position: { x: 1000, y: 2500 }
+        triggers:
+          startTransformation:
+            action: startAnimation
+            data: { name: fade }
+        animations:
+          fade:
+            frames:
+              - fade: 1
+                time: 1000
+
+      - sprite: transformation_plane
+        position: { x: 1000, y: 2300 }
+
+        triggers:
+          onLoad:
+            action: setHidden
+            data: true
+
+          startTransformation:
+            - action: setHidden
+              delay: 2000
+              data: false
+            - action: startSpriteAnimation
+              delay: 3000
+              data: { name: transform }
+            - action: startAnimation
+              delay: 3000
+              data: { name: flyUp }
+            - action: changeScene
+              delay: 17000
+              data: { destination: planes }
+
+        animations:
+          flyUp:
+            frames:
+              - setPosition: { x: 1000, y: 2400 }
+                time: 1333
+              - setPosition: { x: 1000, y: 1900 }
+                time: 1333
+              - setPosition: { x: 800, y: 1400 }
+                time: 1333
+              - setPosition: { x: 600, y: 1000 }
+                time: 1333
+              - setPosition: { x: 400, y: 600 }
+                time: 1333
+              - setPosition: { x: 200, y: 200}
+                startSpriteAnimation:
+                  name: blink
+                  options: { loop: true }
+                time: 1
+
+  # planes ================================================
+  planes:
+    background: planes_bg
+
+    camera:
+      triggers:
+        onLoad:
+          - action: startAnimation
+            delay: 16000
+            data: { name: fade }
+
+      animations:
+        fade:
+          frames:
+            - fade: 1
+              time: 2000
+
+    actors:
+      - sprite: planes_lights
+        position: { x: 524 , y: 76 }
+
+        triggers:
+          onLoad:
+            - action: startSpriteAnimation
+              delay: 4000
+              data: { name: move }
+            - action: startAnimation
+              data:
+                name: blink
+                options: { loop: true }
+            - action: changeScene
+              delay: 18000
+              data: { destination: 1977 }
+
+        animations:
+          blink:
+            frames:
+              - setHidden: true
+                time: 400
+              - setHidden: false
+                time: 400
+              - setHidden: true
+                time: 400
+              - setHidden: false
+                time: 400
+              - setHidden: true
+                time: 400
+
+  # 1977 ==================================================
+  1977:
+    background: 1977_bg
+    actors:
+      - sprite: 1977_button
+        position: { x: 358, y: 432 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data: 
+              name: blink
+              options: { loop: true }
+
+          onClick:
+            action: changeScene
+            data: { destination: immigration }
+
+        animations:
+          blink:
+            frames:
+              - setHidden: true
+                time: 500
+              - setHidden: false
+                time: 500
+              - setHidden: true
+                time: 500
+              - setHidden: false
+                time: 3000
+
+  # immigration ===========================================
+  immigration:
+    background: immigration_bg
+    actors:
+      # Left Door
+      - sprite: immigration_door_left
+        position: { x: 660, y: 230 }
+
+        triggers:
+          onClick:
+            action: broadcastTrigger
+            data: { name: openDoors }
+
+          openDoors:
+            - action: startAnimation
+              maxActivations: 1
+              data: { name: open }
+            - action: changeScene
+              delay: 3000
+              maxActivations: 1
+              data: { destination: outside_immigration }
+
+        animations:
+          open:
+            frames:
+              - moveRelative: { x: -600, y: 0 }
+                time: 2000
+
+      # Right Door
+      - sprite: immigration_door_right
+        position: { x: 1360, y: 230 }
+
+        triggers:
+          onClick:
+            action: broadcastTrigger
+            data: { name: openDoors }
+
+          openDoors:
+            - action: startAnimation
+              maxActivations: 1
+              data: { name: open }
+
+        animations:
+          open:
+            frames:
+              - moveRelative: { x: 600, y: 0 }
+                time: 2000
+
+  # outside_immigration ===================================
+  outside_immigration:
+    background: outside_immigration_bg
+
+    camera:
+      zoom: 1
+      position: { x: -1200, y: -500 }
+
+      triggers:
+        onLoad:
+          - action: startAnimation
+            delay: 1000
+            data: { name: slideOver }
+
+      animations:
+        slideOver:
+          frames: 
+            - pan: { x: 1500, y: 0 }
+              time: 3000
+
+    actors:
+      - sprite: outside_immigration_waving
+        position: { x: 1337, y: 119 }
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data: 
+              name: wave
+              options: { loop: true }
+
+      - sprite: forward_button
+        position: { x: 2000, y: 1000 }
+
+        triggers:
+          onClick:
+            action: changeScene
+            data: { destination: red }
+
+
+  # red ===================================================
+  red:
+    background: red_bg
+    actors:
+      - sprite: forward_button
+        position: { x: 2000, y: 1000 }
+
+        triggers:
+          onClick:
+            action: changeScene
+            data: { destination: car_interior }
+
+      - sprite: red_hair_flash
+        position: { x: 600, y: 310 }
+        triggers:
+          onLoad:
+            action: startAnimation
+            data: 
+              name: flash
+              options: { loop: true }
+        animations:
+          flash:
+            frames:
+              - setHidden: false
+                time: 1000
+              - setHidden: true
+                time: 1000
+              - setHidden: false
+                time: 1000
+              - setHidden: true
+                time: 1000
+              - setHidden: false
+                time: 1000
+              - setHidden: true
+                time: 3000
+
+  # car_interior ==========================================
+  car_interior:
+    background: car_interior_bg
+    texts:
+      - text: |
+          Not many people owned cars back then. It was early morning and the roads were empty.
+
+          I had dreamed of coming back to Korea since my grandparents brought me to New York at age six. It would be harder to learn English when I got older, they said. They knew I didn’t want to stay in New York but a kid belongs with her parents.
+
+          I was back! My heart was filled with joy but I was suddenly feeling shy. Could I speak Korean? Dad said, in order to succeed, my English needed to be better than Americans. So my parents spoke Korean and English to us and we answered mostly in English.
+
+          My brain was slowly shifting gears. I could understand a lot but I couldn’t seem to say what I wanted to say.
+        position: { x: 1800, y: 200 }
+        font: default
+        width: 600
+    actors:
+      - sprite: forward_button
+        position: { x: 2000, y: 1000 }
+
+        triggers:
+          onClick:
+            action: changeScene
+            data: { destination: busy_street }
+
+  # busy_street ===========================================
+  busy_street:
+    background: busy_street_bg
+    actors:
+      - sprite: busy_street_cart
+        position: { x: -1000, y: 1000 }
+
+        triggers:
+          onLoad:
+            - action: startSpriteAnimation
+              data:
+                name: move
+                options: { loop: true }
+            - action: startAnimation
+              data: { name: move }
+
+        animations:
+          move:
+            frames:
+              - moveRelative: { x: 4000, y: -1600 }
+                time: 20000
+
+      - sprite: forward_button
+        position: { x: 2000, y: 1000 }
+
+        triggers:
+          onClick:
+            action: changeScene
+            data: { destination: house }
+
+      - sprite: busy_street_bike
+        position: { x: -700, y: 1270 }
+
+        triggers:
+          onLoad:
+            - action: startSpriteAnimation
+              data:
+                name: move
+                options: { loop: true }
+
+            - action: startAnimation
+              data: { name: move }
+
+        animations:
+          move:
+            frames:
+              - moveRelative: { x: 4000, y: -1600 }
+                time: 10000
+
+      - sprite: busy_street_women
+        position: { x: -1400, y: 1800 }
+
+        triggers:
+          onLoad:
+            - action: startSpriteAnimation
+              data:
+                name: move
+                options: { loop: true }
+            - action: startAnimation
+              data: { name: move }
+
+        animations:
+          move:
+            frames:
+              - moveRelative: { x: 4000, y: -1600 }
+                time: 17000
+
+      # Put wall on top of everything to realistically block vision
+      - sprite: busy_street_wall
+        position: { x: 2405, y: 0 }
+
+  # house =================================================
+  house:
+    background: house_bg
+
+    texts:
+      - text: |
+          And then we were home!  
+
+          Our house was a “Western style” house in the old part of the city.  Have you ever returned to a place you once knew and felt like it was just as you remembered it to be, except smaller?
+
+        position: { x: 1300, y: 1190 }
+        font: default
+        width: 1200
+
+
+    actors:
+      - sprite: house_rainbow
+        position: { x: 700, y: 0 }
+
+        triggers:
+          onLoad:
+            - action: setHidden
+              data: true
+            - action: setHidden
+              delay: 1000
+              data: false
+            - action: startSpriteAnimation
+              delay: 1000
+              data: { name: grow }
+
+      - sprite: forward_button
+        position: { x: 2000, y: 1000 }
+
+        triggers:
+          onClick:
+            action: changeScene
+            data: { destination: drive }
+
+  # drive =================================================
+  drive:
+    background: 0xFFFFFF
+
+    actors:
+      - sprite: drive_mountains
+        position: { x: 0, y: 0 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data: { name: move }
+
+        animations:
+          move:
+            frames:
+              - moveRelative: { x: -2683, y: 0 }
+                time: 20000
+
+      - sprite: drive_buildings
+        position: { x: 0, y: 176 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data: { name: move }
+
+        animations:
+          move:
+            frames:
+              - moveRelative: { x: -13167, y: 0 }
+                time: 20000
+
+      - sprite: drive_road1
+        position: { x: 0, y: 1026 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data:
+              name: roll
+              options: { loop: true }
+
+        animations:
+          roll:
+            frames:
+              - moveRelative: { x: -2560, y: 0 }
+                time: 1000
+              - setPosition: { x: 2560, y: 1026 }
+                time: 0
+              - moveRelative: { x: -2560, y: 0 }
+                time: 1000
+
+      - sprite: drive_road2
+        position: { x: 2560, y: 1026 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data:
+              name: roll
+              options: { loop: true }
+
+        animations:
+          roll:
+            frames:
+              - moveRelative: { x: -5120, y: 0 }
+                time: 2000
+              - setPosition: { x: 2560, y: 1026 }
+                time: 0
+
+      - sprite: drive_car
+        position: { x: 1000, y: 1110 }
+
+  # bow ===================================================
+  bow:
+    background: bow_bg
+
+    actors:
+      - sprite: bow_jiyun
+        position: { x: 1160, y: 300 }
+        triggers:
+          onLoad:
+            - action: startSpriteAnimation
+              delay: 2000
+              data: { name: bow }
+            - action: startSpriteAnimation
+              delay: 7000
+              data: 
+                name: bow
+                options: { reverse: true }
+
+      - sprite: bow_jiyun_bubble
+        position: { x: 1300, y: 230 }
+
+        triggers:
+          onLoad:
+            - action: setHidden
+              delay: 2000
+              data: true
+            - action: setHidden
+              delay: 9000
+              data: false
+
+      - sprite: bow_family_bubbles
+        position: { x: 690, y: 500 }
+
+        triggers:
+          onLoad:
+            - action: setHidden
+              data: true
+            - action: setHidden
+              delay: 3000
+              data: false
+            - action: startSpriteAnimation
+              delay: 3000
+              data: { name: appear }

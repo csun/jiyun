@@ -1,0 +1,30 @@
+sprites:
+  clothes_bg: "images/clothes_bg.jpg"
+
+  clothes_suitcase:
+    type: spritesheet
+    file: "images/clothes_suitcase.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      open:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 2
+
+scenes:
+  clothes:
+    background: clothes_bg
+    nextScene: foot
+
+    actors:
+      - sprite: clothes_suitcase
+        position: { x: 405, y: 935 }
+
+        triggers:
+          onClick:
+            - action: startSpriteAnimation
+              data: { name: open }
+            - action: changeScene
+              delay: 2000
+              data: { destination: suitcase }
+

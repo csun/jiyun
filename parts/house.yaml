@@ -1,0 +1,31 @@
+sprites:
+  house_bg: "images/house_bg.jpg"
+  house_rainbow:
+    type: spritesheet
+    file: "images/house_rainbow.png"
+    frameCounts: { x: 6, y: 1 }
+    animations:
+      grow:
+        startFrame: { x: 0, y: 0 }
+        count: 6
+        fps: 3.5
+
+scenes:
+  house:
+    background: house_bg
+    nextScene: bow
+
+    actors:
+      - sprite: house_rainbow
+        position: { x: 700, y: 0 }
+
+        triggers:
+          onLoad:
+            - action: setHidden
+              data: true
+            - action: setHidden
+              delay: 1000
+              data: false
+            - action: startSpriteAnimation
+              delay: 1000
+              data: { name: grow }

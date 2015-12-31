@@ -1,0 +1,28 @@
+sprites:
+  1977_bg: "images/1977_bg.jpg"
+  1977_lights: "images/1977_lights.png"
+
+scenes:
+  1977:
+    background: 1977_bg
+    nextScene: immigration
+
+    actors:
+      - sprite: 1977_lights
+        position: { x: 1610, y: 1026 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data:
+              name: flash
+              options: { loop: true }
+
+        animations:
+          flash:
+            frames:
+              - setHidden: true
+                time: 1000
+              - setHidden: false
+                time: 1000
+

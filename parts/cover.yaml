@@ -1,0 +1,20 @@
+sprites:
+  cover_bg: "images/cover_bg.jpg"
+  cover_button: "images/cover_button.png"
+
+scenes:
+  cover:
+    background: cover_bg
+    nextScene: dedication
+
+    disabledControls:
+      - next_scene_control
+      - prev_scene_control
+
+    actors:
+      - sprite: cover_button
+        position: { x: 2000, y: 570 }
+
+        triggers:
+          onClick:
+            action: nextScene

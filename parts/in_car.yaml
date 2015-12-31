@@ -1,0 +1,51 @@
+sprites:
+  in_car_bg: "images/in_car_bg.jpg"
+  in_car_hand: "images/in_car_hand.png"
+  in_car_dogs:
+    type: spritesheet
+    file: "images/in_car_dogs.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      bob:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 1
+
+scenes:
+  in_car:
+    background: in_car_bg
+    nextScene: drive
+      
+    actors:
+      - sprite: in_car_dogs
+        position: { x: 450, y: 1190 }
+
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data:
+              name: bob
+              options: { loop: true }
+      
+      - sprite: in_car_hand
+        position: { x: 1370, y: 600 }
+        anchor: { x: 0.94, y: 0.88 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data:
+              name: pat
+              options: { loop: true }
+
+        animations:
+          pat:
+            frames:
+              - rotate: 10
+                time: 500
+              - rotate: -20
+                time: 1000
+              - rotate: 10
+                time: 500
+
+

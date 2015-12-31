@@ -1,0 +1,9 @@
+sprites:
+  tbc_bg: "images/tbc_bg.jpg"
+
+scenes:
+  tbc:
+    background: tbc_bg
+
+    disabledControls:
+      - next_scene_control

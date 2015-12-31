@@ -1,0 +1,112 @@
+sprites:
+  people_bg: "images/people_bg.jpg"
+  people_table: "images/people_table.png"
+
+  people_hat:
+    type: spritesheet
+    file: "images/people_hat.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      place:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 0.3
+
+  people_grandma:
+    type: spritesheet
+    file: "images/people_grandma.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      walk:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 2
+
+  people_nanny_hand:
+    type: spritesheet
+    file: "images/people_nanny_hand.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      wave:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 1
+
+  people_worker_hand:
+    type: spritesheet
+    file: "images/people_worker_hand.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      roll:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 1.5
+    
+
+scenes:
+  people:
+    background: people_bg
+    nextScene: clothes
+
+    actors:
+      - sprite: people_table
+        position: { x: 1570, y: 300 }
+        anchor: { x: 0.5, y: 0.5 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data: 
+              name: wobble
+              options: { loop: true }
+
+        animations:
+          wobble:
+            frames:
+              - rotate: 5
+                time: 400
+              - rotate: -10
+                time: 800
+              - rotate: 5
+                time: 400
+
+      - sprite: people_grandma
+        position: { x: 400, y: 890 }
+
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data: 
+              name: walk
+              options: { loop: true }
+
+      - sprite: people_hat
+        position: { x: 630, y: 288 }
+
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data: 
+              name: place
+              options: { loop: true }
+
+      - sprite: people_nanny_hand
+        position: { x: 1895, y: 915 }
+
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data: 
+              name: wave
+              options: { loop: true }
+
+      - sprite: people_worker_hand
+        position: { x: 1960, y: 590 }
+
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data: 
+              name: roll
+              options: { loop: true }
+

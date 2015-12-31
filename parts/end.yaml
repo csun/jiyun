@@ -1,0 +1,8 @@
+sprites:
+  end_bg: "images/end_bg.jpg"
+
+scenes:
+  end:
+    background: end_bg
+    nextScene: tbc
+
