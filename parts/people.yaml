@@ -63,12 +63,12 @@ scenes:
         animations:
           wobble:
             frames:
-              - rotate: 5
-                time: 400
-              - rotate: -10
-                time: 800
-              - rotate: 5
-                time: 400
+              - rotate: 3
+                time: 700
+              - rotate: -6
+                time: 1400
+              - rotate: 3
+                time: 700
 
       - sprite: people_grandma
         position: { x: 400, y: 890 }

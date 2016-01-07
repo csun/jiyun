@@ -9,16 +9,7 @@ sprites:
       bow:
         startFrame: { x: 0, y: 0 }
         count: 7
-        fps: 6
-  bow_family_bubbles:
-    type: spritesheet
-    file: "images/bow_family_bubbles.png"
-    frameCounts: { x: 4, y: 1}
-    animations:
-      appear:
-        startFrame: { x: 0, y: 0 }
-        count: 4
-        fps: 1
+        fps: 2
 
 scenes:
   bow:
@@ -29,39 +20,27 @@ scenes:
       - sprite: bow_jiyun
         position: { x: 1160, y: 300 }
         triggers:
-          onLoad:
+          onClick:
+            action: broadcastTrigger
+            maxActivations: 1
+            data: { name: bow }
+
+          bow:
             - action: startSpriteAnimation
-              delay: 2000
               data: { name: bow }
             - action: startSpriteAnimation
-              delay: 7000
+              delay: 5000
               data: 
                 name: bow
                 options: { reverse: true }
 
       - sprite: bow_jiyun_bubble
-        position: { x: 1300, y: 230 }
+        position: { x: 1290, y: 220 }
 
         triggers:
-          onLoad:
+          bow:
             - action: setHidden
-              delay: 2000
               data: true
             - action: setHidden
               delay: 9000
               data: false
-
-      - sprite: bow_family_bubbles
-        position: { x: 690, y: 500 }
-
-        triggers:
-          onLoad:
-            - action: setHidden
-              data: true
-            - action: setHidden
-              delay: 3000
-              data: false
-            - action: startSpriteAnimation
-              delay: 3000
-              data: { name: appear }
-

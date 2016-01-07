@@ -14,7 +14,7 @@ sprites:
 scenes:
   in_car:
     background: in_car_bg
-    nextScene: drive
+    nextScene: busy_street
       
     actors:
       - sprite: in_car_dogs
@@ -45,7 +45,16 @@ scenes:
                 time: 500
               - rotate: -20
                 time: 1000
+              - rotate: 20
+                time: 1000
+              - rotate: -20
+                time: 1000
+              - rotate: 20
+                time: 1000
+              - rotate: -20
+                time: 1000
               - rotate: 10
                 time: 500
+              - time: 3000
 
 

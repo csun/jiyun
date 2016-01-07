@@ -13,7 +13,7 @@ scenes:
 
     actors:
       - sprite: planes_lights_1
-        position: { x: 2032 , y: 64 }
+        position: { x: 490, y: 64 }
 
         triggers:
           onLoad:
@@ -31,7 +31,7 @@ scenes:
                 time: 0
           
       - sprite: planes_lights_2
-        position: { x: 1641 , y: 171 }
+        position: { x: 848, y: 171 }
 
         triggers:
           onLoad:
@@ -49,7 +49,7 @@ scenes:
                 time: 0
 
       - sprite: planes_lights_3
-        position: { x: 1273 , y: 380 }
+        position: { x: 1163, y: 380 }
 
         triggers:
           onLoad:
@@ -67,7 +67,7 @@ scenes:
                 time: 0
 
       - sprite: planes_lights_4
-        position: { x: 813 , y: 778 }
+        position: { x: 1539, y: 778 }
 
         triggers:
           onLoad:
@@ -85,7 +85,7 @@ scenes:
                 time: 0
 
       - sprite: planes_lights_5
-        position: { x: 554 , y: 1201 }
+        position: { x: 1921, y: 1201 }
 
         triggers:
           onLoad:

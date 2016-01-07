@@ -15,20 +15,7 @@ sprites:
           x: 0
           'y': 0
         count: 7
-        fps: 6
-  bow_family_bubbles:
-    type: spritesheet
-    file: images/bow_family_bubbles.png
-    frameCounts:
-      x: 4
-      'y': 1
-    animations:
-      appear:
-        startFrame:
-          x: 0
-          'y': 0
-        count: 4
-        fps: 1
+        fps: 2
   busy_street_bg: images/busy_street_bg.jpg
   busy_street_wall: images/busy_street_wall.png
   busy_street_cart:
@@ -87,12 +74,20 @@ sprites:
   cover_bg: images/cover_bg.jpg
   cover_button: images/cover_button.png
   dedication_bg: images/dedication_bg.jpg
-  drive_road1: images/drive_road1.png
-  drive_road2: images/drive_road2.png
-  drive_mountains: images/drive_mountains.jpg
-  drive_buildings: images/drive_buildings.png
-  drive_car: images/drive_car.png
   end_bg: images/end_bg.jpg
+  end_foot:
+    type: spritesheet
+    file: images/end_foot.png
+    frameCounts:
+      x: 2
+      'y': 1
+    animations:
+      move:
+        startFrame:
+          x: 0
+          'y': 0
+        count: 2
+        fps: 0.8
   foot_bg: images/foot_bg.jpg
   foot_pencil:
     type: spritesheet
@@ -219,8 +214,7 @@ sprites:
   red_hair_bg: images/red_hair_bg.jpg
   suitcase_bg: images/suitcase_bg.jpg
   tbc_bg: images/tbc_bg.jpg
-  transformation_bg: images/transformation_bg.jpg
-  transformation_lights: images/transformation_lights.png
+  tbc_button: images/tbc_button.png
 scenes:
   '1977':
     background: 1977_bg
@@ -228,8 +222,8 @@ scenes:
     actors:
       - sprite: 1977_lights
         position:
-          x: 1610
-          'y': 1026
+          x: 751
+          'y': 1053
         triggers:
           onLoad:
             action: startAnimation
@@ -253,44 +247,32 @@ scenes:
           x: 1160
           'y': 300
         triggers:
-          onLoad:
+          onClick:
+            action: broadcastTrigger
+            maxActivations: 1
+            data:
+              name: bow
+          bow:
             - action: startSpriteAnimation
-              delay: 2000
               data:
                 name: bow
             - action: startSpriteAnimation
-              delay: 7000
+              delay: 5000
               data:
                 name: bow
                 options:
                   reverse: true
       - sprite: bow_jiyun_bubble
         position:
-          x: 1300
-          'y': 230
+          x: 1290
+          'y': 220
         triggers:
-          onLoad:
+          bow:
             - action: setHidden
-              delay: 2000
               data: true
             - action: setHidden
               delay: 9000
               data: false
-      - sprite: bow_family_bubbles
-        position:
-          x: 690
-          'y': 500
-        triggers:
-          onLoad:
-            - action: setHidden
-              data: true
-            - action: setHidden
-              delay: 3000
-              data: false
-            - action: startSpriteAnimation
-              delay: 3000
-              data:
-                name: appear
   busy_street:
     background: busy_street_bg
     nextScene: house
@@ -405,111 +387,21 @@ scenes:
   dedication:
     background: dedication_bg
     nextScene: intro
-  drive:
-    background: 0
-    nextScene: busy_street
-    camera:
-      triggers:
-        onLoad:
-          action: startAnimation
-          delay: 16000
-          data:
-            name: fadeOut
-      animations:
-        fadeOut:
-          frames:
-            - fade: 1
-              time: 2000
-    actors:
-      - sprite: drive_mountains
-        position:
-          x: 0
-          'y': 0
-        triggers:
-          onLoad:
-            action: startAnimation
-            data:
-              name: move
-        animations:
-          move:
-            frames:
-              - moveRelative:
-                  x: -2683
-                  'y': 0
-                time: 20000
-              - nextScene: true
-                time: 0
-      - sprite: drive_buildings
-        position:
-          x: 0
-          'y': 176
-        triggers:
-          onLoad:
-            action: startAnimation
-            data:
-              name: move
-        animations:
-          move:
-            frames:
-              - moveRelative:
-                  x: -13167
-                  'y': 0
-                time: 20000
-      - sprite: drive_road1
-        position:
-          x: 0
-          'y': 990
-        triggers:
-          onLoad:
-            action: startAnimation
-            data:
-              name: roll
-              options:
-                loop: true
-        animations:
-          roll:
-            frames:
-              - moveRelative:
-                  x: -2560
-                  'y': 0
-                time: 3889
-              - setPosition:
-                  x: 2560
-                  'y': 990
-                time: 0
-              - moveRelative:
-                  x: -2560
-                  'y': 0
-                time: 3889
-      - sprite: drive_road2
-        position:
-          x: 2560
-          'y': 990
-        triggers:
-          onLoad:
-            action: startAnimation
-            data:
-              name: roll
-              options:
-                loop: true
-        animations:
-          roll:
-            frames:
-              - moveRelative:
-                  x: -5120
-                  'y': 0
-                time: 7778
-              - setPosition:
-                  x: 2560
-                  'y': 990
-                time: 0
-      - sprite: drive_car
-        position:
-          x: 1000
-          'y': 1110
   end:
     background: end_bg
     nextScene: tbc
+    actors:
+      - sprite: end_foot
+        position:
+          x: 1147
+          'y': 1015
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data:
+              name: move
+              options:
+                loop: true
   foot:
     background: foot_bg
     nextScene: end
@@ -606,7 +498,7 @@ scenes:
               name: openDoors
   in_car:
     background: in_car_bg
-    nextScene: drive
+    nextScene: busy_street
     actors:
       - sprite: in_car_dogs
         position:
@@ -640,11 +532,20 @@ scenes:
                 time: 500
               - rotate: -20
                 time: 1000
+              - rotate: 20
+                time: 1000
+              - rotate: -20
+                time: 1000
+              - rotate: 20
+                time: 1000
+              - rotate: -20
+                time: 1000
               - rotate: 10
                 time: 500
+              - time: 3000
   intro:
     background: intro_bg
-    nextScene: transformation
+    nextScene: planes
   outside_immigration:
     background: outside_immigration_bg
     nextScene: red_hair
@@ -736,12 +637,12 @@ scenes:
         animations:
           wobble:
             frames:
-              - rotate: 5
-                time: 400
-              - rotate: -10
-                time: 800
-              - rotate: 5
-                time: 400
+              - rotate: 3
+                time: 700
+              - rotate: -6
+                time: 1400
+              - rotate: 3
+                time: 700
       - sprite: people_grandma
         position:
           x: 400
@@ -792,7 +693,7 @@ scenes:
     actors:
       - sprite: planes_lights_1
         position:
-          x: 2032
+          x: 490
           'y': 64
         triggers:
           onLoad:
@@ -810,7 +711,7 @@ scenes:
                 time: 0
       - sprite: planes_lights_2
         position:
-          x: 1641
+          x: 848
           'y': 171
         triggers:
           onLoad:
@@ -828,7 +729,7 @@ scenes:
                 time: 0
       - sprite: planes_lights_3
         position:
-          x: 1273
+          x: 1163
           'y': 380
         triggers:
           onLoad:
@@ -846,7 +747,7 @@ scenes:
                 time: 0
       - sprite: planes_lights_4
         position:
-          x: 813
+          x: 1539
           'y': 778
         triggers:
           onLoad:
@@ -864,7 +765,7 @@ scenes:
                 time: 0
       - sprite: planes_lights_5
         position:
-          x: 554
+          x: 1921
           'y': 1201
         triggers:
           onLoad:
@@ -891,86 +792,16 @@ scenes:
     background: tbc_bg
     disabledControls:
       - next_scene_control
-  transformation:
-    background: transformation_bg
-    nextScene: planes
-    disabledControls:
-      - next_scene_control
-      - prev_scene_control
-    camera:
-      position:
-        x: 0
-        'y': 2000
-      triggers:
-        onLoad:
-          - action: startAnimation
-            delay: 1000
-            data:
-              name: pan
-      animations:
-        pan:
-          frames:
-            - pan:
-                x: 0
-                'y': -2000
-              time: 7000
     actors:
-      - sprite: transformation_lights
-        position:
-          x: 234
-          'y': 251
-        triggers:
-          onLoad:
-            action: startAnimation
-            data:
-              name: blink
-              options:
-                loop: true
-        animations:
-          blink:
-            frames:
-              - setHidden: true
-                time: 700
-              - setHidden: false
-                time: 700
-      - sprite: prev_button
-        position:
-          x: 210
-          'y': 1280
-        triggers:
-          onLoad:
-            - action: fade
-              data: 1
-            - action: startAnimation
-              delay: 8000
-              data:
-                name: fadeIn
-          onClick:
-            action: prevScene
-        animations:
-          fadeIn:
-            frames:
-              - fade: -1
-                time: 1000
-      - sprite: next_button
+      - sprite: tbc_button
         position:
           x: 2290
-          'y': 1280
+          'y': 1279
         triggers:
-          onLoad:
-            - action: fade
-              data: 1
-            - action: startAnimation
-              delay: 8000
-              data:
-                name: fadeIn
           onClick:
-            action: nextScene
-        animations:
-          fadeIn:
-            frames:
-              - fade: -1
-                time: 1000
+            action: changeScene
+            data:
+              destination: cover
 entryScene: cover
 sceneSize:
   width: 2560

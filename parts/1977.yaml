@@ -9,7 +9,7 @@ scenes:
 
     actors:
       - sprite: 1977_lights
-        position: { x: 1610, y: 1026 }
+        position: { x: 751, y: 1053 }
 
         triggers:
           onLoad:

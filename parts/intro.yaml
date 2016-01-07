@@ -4,5 +4,5 @@ sprites:
 scenes:
   intro:
     background: intro_bg
-    nextScene: transformation
+    nextScene: planes
 
