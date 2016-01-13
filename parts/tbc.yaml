@@ -11,7 +11,7 @@ scenes:
 
     actors:
       - sprite: tbc_button
-        position: { x: 2290, y: 1279 }
+        position: { x: 2250, y: 1239 }
 
         triggers:
           onClick:

@@ -29,7 +29,7 @@ scenes:
             - action: startSpriteAnimation
               data: { name: bow }
             - action: startSpriteAnimation
-              delay: 5000
+              delay: 4250
               data: 
                 name: bow
                 options: { reverse: true }
@@ -42,5 +42,5 @@ scenes:
             - action: setHidden
               data: true
             - action: setHidden
-              delay: 9000
+              delay: 8250
               data: false

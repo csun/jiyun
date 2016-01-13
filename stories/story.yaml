@@ -257,7 +257,7 @@ scenes:
               data:
                 name: bow
             - action: startSpriteAnimation
-              delay: 5000
+              delay: 4250
               data:
                 name: bow
                 options:
@@ -271,7 +271,7 @@ scenes:
             - action: setHidden
               data: true
             - action: setHidden
-              delay: 9000
+              delay: 8250
               data: false
   busy_street:
     background: busy_street_bg
@@ -795,8 +795,8 @@ scenes:
     actors:
       - sprite: tbc_button
         position:
-          x: 2290
-          'y': 1279
+          x: 2250
+          'y': 1239
         triggers:
           onClick:
             action: changeScene
