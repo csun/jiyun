@@ -1,13 +1,72 @@
-body, h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, hr,
-dl, dd, ol, ul, figure {
-  margin: 0;
-  padding: 0;
-}
 
 body {
-  position: fixed; 
-  overflow-y: scroll;
-  width: 100%;
-  background-color: #333333;
+	background-color: #FFF8F0;
+}
+
+.top-spacer {
+	height: 40px;
+}
+
+.navbar {
+	padding-top: 4px;
+	padding-bottom: 4px;
+	text-align: center;
+
+	border-style: solid;
+	border-width: 1px 0px 1px 0px;
+	background-color: #AD7B51;
+}
+
+.navbar a:link {
+	color: #FFF;
+}
+
+.navbar a:visited{
+	color: #FFF;
+}
+
+.content {
+	padding: 10px 60px 0px 60px;
+	margin-bottom: 30px;
+}
+
+.text {
+	padding: 20px 20px 0px 20px;
+}
+
+.text p {
+	line-height: 120%;
+	margin-top: 20px;
+}
+
+.left-bar img {
+	max-height: 300px;
+	width: auto;
+	margin: 60px auto 0px auto;
+}
+
+/* Sticky footer code */
+* {
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+	min-width: 600px;
+}
+
+.wrapper {
+	min-height: 100%;
+	margin: 0 auto -320px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.footer, .push {
+	height: 320px; /* '.push' must be the same height as 'footer' */
+}
+
+.footer img {
+	max-height: 280px;
+	width: auto;
+	margin: 20px 0px 20px 0px;
+	float: right;
 }
