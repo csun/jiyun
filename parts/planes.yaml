@@ -11,7 +11,49 @@ scenes:
     background: planes_bg
     nextScene: "1977"
 
+    disabledControls:
+      - next_scene_control
+      - prev_scene_control
+
     actors:
+      - sprite: prev_button
+        position: { x: 210, y: 1280 }
+
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 7000
+              data: { name: fadeIn }
+          onClick:
+            action: prevScene
+
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+                   
+      - sprite: next_button
+        position: { x: 2290, y: 1280 }
+
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 7000
+              data: { name: fadeIn }
+          onClick:
+            action: nextScene
+
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+
       - sprite: planes_lights_1
         position: { x: 490, y: 64 }
 

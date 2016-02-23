@@ -1,0 +1,96 @@
+sprites:
+  drive_road1: "images/drive_road1.png"
+  drive_road2: "images/drive_road2.png"
+  drive_mountains: "images/drive_mountains.jpg"
+  drive_buildings: "images/drive_buildings.png"
+  drive_car: "images/drive_car.png"
+
+scenes:
+  drive:
+    background: 0xFFFFFF
+    nextScene: in_car
+
+    camera:
+      triggers:
+        onLoad:
+          - action: startAnimation
+            delay: 7000
+            data: { name: fade }
+      
+      animations:
+        fade:
+          frames:
+            - fade: 1
+              time: 2000
+
+    actors:
+      - sprite: drive_mountains
+        position: { x: 0, y: 0 }
+
+        triggers:
+          onLoad:
+            - action: startAnimation
+              data: { name: move }
+            - action: nextScene # Apparently camera can't change scenes, so we have to do it here.
+              delay: 10000
+
+        animations:
+          move:
+            frames:
+              - moveRelative: { x: -2683, y: 0 }
+                time: 20000
+
+      - sprite: drive_buildings
+        position: { x: 0, y: 200 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data: { name: move }
+
+        animations:
+          move:
+            frames:
+              - moveRelative: { x: -13167, y: 0 }
+                time: 20000
+
+      - sprite: drive_road1
+        position: { x: 0, y: 1026 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data:
+              name: roll
+              options: { loop: true }
+
+        animations:
+          roll:
+            frames:
+              - moveRelative: { x: -2560, y: 0 }
+                time: 1000
+              - setPosition: { x: 2560, y: 1026 }
+                time: 0
+              - moveRelative: { x: -2560, y: 0 }
+                time: 1000
+
+      - sprite: drive_road2
+        position: { x: 2560, y: 1026 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data:
+              name: roll
+              options: { loop: true }
+
+        animations:
+          roll:
+            frames:
+              - moveRelative: { x: -5120, y: 0 }
+                time: 2000
+              - setPosition: { x: 2560, y: 1026 }
+                time: 0
+
+      - sprite: drive_car
+        position: { x: 1000, y: 1110 }

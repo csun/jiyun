@@ -14,7 +14,7 @@ sprites:
 scenes:
   end:
     background: end_bg
-    nextScene: tbc
+    disabledControls: ['next_scene_control']
 
     actors:
       - sprite: end_foot

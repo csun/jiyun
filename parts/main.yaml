@@ -1,4 +1,4 @@
-entryScene: cover
+entryScene: intro
 sceneSize: { width: 2560, height: 1440 }
 
 fonts:

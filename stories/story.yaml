@@ -74,6 +74,11 @@ sprites:
   cover_bg: images/cover_bg.jpg
   cover_button: images/cover_button.png
   dedication_bg: images/dedication_bg.jpg
+  drive_road1: images/drive_road1.png
+  drive_road2: images/drive_road2.png
+  drive_mountains: images/drive_mountains.jpg
+  drive_buildings: images/drive_buildings.png
+  drive_car: images/drive_car.png
   end_bg: images/end_bg.jpg
   end_foot:
     type: spritesheet
@@ -219,7 +224,48 @@ scenes:
   '1977':
     background: 1977_bg
     nextScene: immigration
+    disabledControls:
+      - next_scene_control
+      - prev_scene_control
     actors:
+      - sprite: prev_button
+        position:
+          x: 210
+          'y': 1280
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 6000
+              data:
+                name: fadeIn
+          onClick:
+            action: prevScene
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+      - sprite: next_button
+        position:
+          x: 2290
+          'y': 1280
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 6000
+              data:
+                name: fadeIn
+          onClick:
+            action: nextScene
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
       - sprite: 1977_lights
         position:
           x: 751
@@ -241,23 +287,68 @@ scenes:
   bow:
     background: bow_bg
     nextScene: people
+    disabledControls:
+      - next_scene_control
+      - prev_scene_control
     actors:
+      - sprite: prev_button
+        position:
+          x: 210
+          'y': 1280
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 6000
+              data:
+                name: fadeIn
+          onClick:
+            action: prevScene
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+      - sprite: next_button
+        position:
+          x: 2290
+          'y': 1280
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 6000
+              data:
+                name: fadeIn
+          onClick:
+            action: nextScene
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
       - sprite: bow_jiyun
         position:
           x: 1160
           'y': 300
         triggers:
-          onClick:
-            action: broadcastTrigger
-            maxActivations: 1
-            data:
-              name: bow
+          onLoad:
+            - action: broadcastTrigger
+              delay: 2000
+              data:
+                name: bow
+            - action: broadcastTrigger
+              delay: 10000
+              data:
+                name: bow
           bow:
             - action: startSpriteAnimation
               data:
                 name: bow
             - action: startSpriteAnimation
-              delay: 4250
+              delay: 3000
               data:
                 name: bow
                 options:
@@ -267,16 +358,58 @@ scenes:
           x: 1290
           'y': 220
         triggers:
-          bow:
+          onLoad:
+            - delay: 2000
             - action: setHidden
               data: true
             - action: setHidden
-              delay: 8250
+              delay: 17000
               data: false
   busy_street:
     background: busy_street_bg
     nextScene: house
+    disabledControls:
+      - next_scene_control
+      - prev_scene_control
     actors:
+      - sprite: prev_button
+        position:
+          x: 210
+          'y': 1280
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 12000
+              data:
+                name: fadeIn
+          onClick:
+            action: prevScene
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+      - sprite: next_button
+        position:
+          x: 2290
+          'y': 1280
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 12000
+              data:
+                name: fadeIn
+          onClick:
+            action: nextScene
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
       - sprite: busy_street_cart
         position:
           x: -1000
@@ -387,9 +520,112 @@ scenes:
   dedication:
     background: dedication_bg
     nextScene: intro
+  drive:
+    background: 16777215
+    nextScene: in_car
+    camera:
+      triggers:
+        onLoad:
+          - action: startAnimation
+            delay: 7000
+            data:
+              name: fade
+      animations:
+        fade:
+          frames:
+            - fade: 1
+              time: 2000
+    actors:
+      - sprite: drive_mountains
+        position:
+          x: 0
+          'y': 0
+        triggers:
+          onLoad:
+            - action: startAnimation
+              data:
+                name: move
+            - action: nextScene
+              delay: 10000
+        animations:
+          move:
+            frames:
+              - moveRelative:
+                  x: -2683
+                  'y': 0
+                time: 20000
+      - sprite: drive_buildings
+        position:
+          x: 0
+          'y': 200
+        triggers:
+          onLoad:
+            action: startAnimation
+            data:
+              name: move
+        animations:
+          move:
+            frames:
+              - moveRelative:
+                  x: -13167
+                  'y': 0
+                time: 20000
+      - sprite: drive_road1
+        position:
+          x: 0
+          'y': 1026
+        triggers:
+          onLoad:
+            action: startAnimation
+            data:
+              name: roll
+              options:
+                loop: true
+        animations:
+          roll:
+            frames:
+              - moveRelative:
+                  x: -2560
+                  'y': 0
+                time: 1000
+              - setPosition:
+                  x: 2560
+                  'y': 1026
+                time: 0
+              - moveRelative:
+                  x: -2560
+                  'y': 0
+                time: 1000
+      - sprite: drive_road2
+        position:
+          x: 2560
+          'y': 1026
+        triggers:
+          onLoad:
+            action: startAnimation
+            data:
+              name: roll
+              options:
+                loop: true
+        animations:
+          roll:
+            frames:
+              - moveRelative:
+                  x: -5120
+                  'y': 0
+                time: 2000
+              - setPosition:
+                  x: 2560
+                  'y': 1026
+                time: 0
+      - sprite: drive_car
+        position:
+          x: 1000
+          'y': 1110
   end:
     background: end_bg
-    nextScene: tbc
+    disabledControls:
+      - next_scene_control
     actors:
       - sprite: end_foot
         position:
@@ -420,7 +656,48 @@ scenes:
   house:
     background: house_bg
     nextScene: bow
+    disabledControls:
+      - next_scene_control
+      - prev_scene_control
     actors:
+      - sprite: prev_button
+        position:
+          x: 210
+          'y': 1280
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 6000
+              data:
+                name: fadeIn
+          onClick:
+            action: prevScene
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+      - sprite: next_button
+        position:
+          x: 2290
+          'y': 1280
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 6000
+              data:
+                name: fadeIn
+          onClick:
+            action: nextScene
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
       - sprite: house_rainbow
         position:
           x: 700
@@ -546,6 +823,8 @@ scenes:
   intro:
     background: intro_bg
     nextScene: planes
+    disabledControls:
+      - prev_scene_control
   outside_immigration:
     background: outside_immigration_bg
     nextScene: red_hair
@@ -690,7 +969,48 @@ scenes:
   planes:
     background: planes_bg
     nextScene: '1977'
+    disabledControls:
+      - next_scene_control
+      - prev_scene_control
     actors:
+      - sprite: prev_button
+        position:
+          x: 210
+          'y': 1280
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 7000
+              data:
+                name: fadeIn
+          onClick:
+            action: prevScene
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+      - sprite: next_button
+        position:
+          x: 2290
+          'y': 1280
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 7000
+              data:
+                name: fadeIn
+          onClick:
+            action: nextScene
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
       - sprite: planes_lights_1
         position:
           x: 490
@@ -783,7 +1103,7 @@ scenes:
                 time: 0
   red_hair:
     background: red_hair_bg
-    nextScene: in_car
+    nextScene: drive
   suitcase:
     background: suitcase_bg
     disabledControls:
@@ -802,7 +1122,7 @@ scenes:
             action: changeScene
             data:
               destination: cover
-entryScene: cover
+entryScene: intro
 sceneSize:
   width: 2560
   height: 1440

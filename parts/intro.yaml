@@ -6,3 +6,6 @@ scenes:
     background: intro_bg
     nextScene: planes
 
+    disabledControls:
+      - prev_scene_control
+

@@ -27,22 +27,28 @@ body {
 
 .content {
 	padding: 10px 60px 0px 60px;
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 }
 
 .text {
-	padding: 20px 20px 0px 20px;
+	padding-top: 20px;
 }
 
 .text p {
+	padding-right: 40px;
+	padding-left: 40px;
 	line-height: 120%;
 	margin-top: 20px;
 }
 
+.left-bar {
+	max-height: 200px;
+}
+
 .left-bar img {
-	max-height: 300px;
-	width: auto;
-	margin: 60px auto 0px auto;
+	width: 140px;
+	height: auto;
+	margin: 40px auto 0px auto;
 }
 
 /* Sticky footer code */
