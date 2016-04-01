@@ -1,55 +1,11 @@
-<!doctype html>
-<html>
-	<head>
-		<title>Jiyun's Korea Adventure | {{ page.title }}</title>
-		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-		<link rel="stylesheet" href="/css/style.css">
-		<meta name="viewport" content="width=device-width">
-	</head>
+{% include header.html %}
 
-	<body>
-		<div class="wrapper">
-			<div class="top-spacer"></div>
+<div class="pure-u-1-6 left-bar">
+	<img class="pure-img" src="/images/left-bar.png">
+</div>
 
-			<div class="pure-g navbar">
-				<div class="pure-u-1-5 nav-item">
-					<a href="/">Home</a>
-				</div>
-				<div class="pure-u-1-5 nav-item">
-					<a href="/about">About</a>
-				</div>
-				<div class="pure-u-1-5 nav-item">
-					<a href="/chapters">Chapters</a>
-				</div>
-				<div class="pure-u-1-5 nav-item">
-					<a href="/contact">Contact</a>
-				</div>
-				<div class="pure-u-1-5 nav-item">
-					<a href="/subscribe">Subscribe</a>
-				</div>
-			</div>
+<div class="pure-u-5-6 text">
+	{{ content }}
+</div>
 
-			<div class="pure-g content">
-				<div class="pure-u-1-6 left-bar">
-					<img class="pure-img" src="/images/left-bar.png">
-				</div>
-
-
-				<div class="pure-u-5-6 text">
-					{{ content }}
-				</div>
-			</div>
-
-			<div class="push"></div>
-		</div>
-
-		<footer class="pure-g footer">
-			<div class="pure-u-1-4"></div>
-
-			<div class="pure-u-2-3">
-				<img class="pure-img" src="{{ page.footer_image }}">
-			</div>
-		</footer>
-	</body>
-</html>
-
+{% include footer.html %}

@@ -8,21 +8,34 @@ body {
 }
 
 .navbar {
-	padding-top: 4px;
-	padding-bottom: 4px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	text-align: center;
 
-	border-style: solid;
-	border-width: 1px 0px 1px 0px;
 	background-color: #AD7B51;
+}
+
+.text a:link {
+	color: #AD7B51;
+}
+
+.text a:visited{
+	color: #AD7B51;
 }
 
 .navbar a:link {
 	color: #FFF;
+	text-decoration: none;
+}
+
+.navbar a:hover{
+	color: #FFF;
+	text-decoration: underline;
 }
 
 .navbar a:visited{
 	color: #FFF;
+	text-decoration: none;
 }
 
 .content {
@@ -51,16 +64,48 @@ body {
 	margin: 40px auto 0px auto;
 }
 
+/* Main page stuff */
+.main-button {
+	padding: 6px 12px 6px 12px;
+	border: 2px solid;
+	border-radius: 3px;
+	border-color: #AD7B51;
+	color: #AD7B51;
+	background-color: transparent;
+	font-size: 24px;
+	text-decoration: none;
+}
+
+.main-button:hover {
+	color: #FFF !important;
+	border-color: #AD7B51;
+	background-color: #AD7B51;
+}
+
+.centered-button-container {
+	margin-top: 40px;
+	text-align: center;
+	width: 100%;
+}
+
+.main-image-container {
+	width: 100%;
+	padding: 0 20px 0 20px;
+}
+
 /* Custom Mailchimp Styling */
 #mc_embed_signup{
 	clear:left;
 	width:100%;
 }
+#mc_embed_signup input.email {
+	display: inline-block;
+}
 
 /* MailChimp Form Embed Code - Slim - 12/15/2015 v10.7 */
 #mc_embed_signup form {display:block; position:relative; text-align:left; padding:30px 0 10px 40px;}
 #mc_embed_signup h2 {font-weight:bold; padding:0; margin:15px 0; font-size:1.4em;}
-#mc_embed_signup input {border:1px solid #999; -webkit-appearance:none;}
+#mc_embed_signup input.email {border:1px solid #999; -webkit-appearance:none;}
 #mc_embed_signup .button {clear:both; background-color: #777; border: 0 none; border-radius:4px; letter-spacing:.03em; color: #FFFFFF; cursor: pointer; display: inline-block; font-size:15px; height: 32px; line-height: 32px; margin: 0 5px 10px 0; padding:0; text-align: center; text-decoration: none; vertical-align: top; white-space: nowrap; width: auto; transition: all 0.23s ease-in-out 0s;}
 #mc_embed_signup .button:hover {background-color:#AD7B51;}
 #mc_embed_signup .small-meta {font-size: 11px;}
