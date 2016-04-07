@@ -1,9 +1,9 @@
 sprites:
-  drive_road1: "images/drive_road1.png"
-  drive_road2: "images/drive_road2.png"
-  drive_mountains: "images/drive_mountains.jpg"
-  drive_buildings: "images/drive_buildings.png"
-  drive_car: "images/drive_car.png"
+  drive_road1: "/images/drive_road1.png"
+  drive_road2: "/images/drive_road2.png"
+  drive_mountains: "/images/drive_mountains.jpg"
+  drive_buildings: "/images/drive_buildings.png"
+  drive_car: "/images/drive_car.png"
 
 scenes:
   drive:

@@ -1,8 +1,8 @@
 sprites:
-  end_bg: "images/end_bg.jpg"
+  end_bg: "/images/end_bg.jpg"
   end_foot:
     type: spritesheet
-    file: "images/end_foot.png"
+    file: "/images/end_foot.png"
     frameCounts: { x: 2, y: 1 }
     animations:
       move:

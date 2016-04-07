@@ -1,22 +1,13 @@
 {% include header.html %}
 
-<script type="text/javascript" src="js/scarry.min.js"></script>
+<script type="text/javascript" src="/js/scarry.min.js"></script>
+<script type="text/javascript" src="/js/viewer.js"></script>
 <script type="text/javascript">
-	scarry.init({
-		size: {
-			width: 1280,
-			height: 720
-		},
-		
-		storyFile: {{ storyFile }}
-	});
-	
-	// TODO modify scarry to let you specify element to append to,
-	// or just return the element to append and put it in the viewer div
+window.onload = function() {
+	startViewer('viewer-container', '{{ page.storyFile }}');
+}
 </script>
 
-<div class="viewer"></div>
-<! TODO - next and previous links !>
-
+<div id="viewer-container"></div>
 
 {% include footer.html %}

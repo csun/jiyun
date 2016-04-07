@@ -1,9 +1,9 @@
 sprites:
-  bow_bg: "images/bow_bg.jpg"
-  bow_jiyun_bubble: "images/bow_jiyun_bubble.png"
+  bow_bg: "/images/bow_bg.jpg"
+  bow_jiyun_bubble: "/images/bow_jiyun_bubble.png"
   bow_jiyun:
     type: spritesheet
-    file: "images/bow_jiyun.png"
+    file: "/images/bow_jiyun.png"
     frameCounts: { x: 7, y: 1 }
     animations:
       bow:

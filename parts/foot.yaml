@@ -1,9 +1,9 @@
 sprites:
-  foot_bg: "images/foot_bg.jpg"
+  foot_bg: "/images/foot_bg.jpg"
 
   foot_pencil:
     type: spritesheet
-    file: "images/foot_pencil.png"
+    file: "/images/foot_pencil.png"
     frameCounts: { x: 2, y: 1 }
     animations:
       trace:

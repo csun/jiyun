@@ -1,6 +1,6 @@
 sprites:
-  cover_bg: "images/cover_bg.jpg"
-  cover_button: "images/cover_button.png"
+  cover_bg: "/images/cover_bg.jpg"
+  cover_button: "/images/cover_button.png"
 
 scenes:
   cover:
