@@ -1,8 +1,8 @@
 sprites:
-  house_bg: "images/house_bg.jpg"
+  house_bg: "/images/house_bg.jpg"
   house_rainbow:
     type: spritesheet
-    file: "images/house_rainbow.png"
+    file: "/images/house_rainbow.png"
     frameCounts: { x: 6, y: 1 }
     animations:
       grow:

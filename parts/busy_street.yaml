@@ -1,9 +1,9 @@
 sprites:
-  busy_street_bg: "images/busy_street_bg.jpg"
-  busy_street_wall: "images/busy_street_wall.png"
+  busy_street_bg: "/images/busy_street_bg.jpg"
+  busy_street_wall: "/images/busy_street_wall.png"
   busy_street_cart:
     type: spritesheet
-    file: "images/busy_street_cart.png"
+    file: "/images/busy_street_cart.png"
     frameCounts: { x: 2, y: 1 }
     animations:
       move:
@@ -12,7 +12,7 @@ sprites:
         fps: 1.5
   busy_street_bike:
     type: spritesheet
-    file: "images/busy_street_bike.png"
+    file: "/images/busy_street_bike.png"
     frameCounts: { x: 2, y: 1 }
     animations:
       move:
@@ -21,7 +21,7 @@ sprites:
         fps: 3.5
   busy_street_women:
     type: spritesheet
-    file: "images/busy_street_women.png"
+    file: "/images/busy_street_women.png"
     frameCounts: { x: 2, y: 1 }
     animations:
       move:

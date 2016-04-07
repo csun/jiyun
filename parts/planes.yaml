@@ -1,10 +1,10 @@
 sprites:
-  planes_bg: "images/planes_bg.jpg"
-  planes_lights_1: "images/planes_lights_1.png"
-  planes_lights_2: "images/planes_lights_2.png"
-  planes_lights_3: "images/planes_lights_3.png"
-  planes_lights_4: "images/planes_lights_4.png"
-  planes_lights_5: "images/planes_lights_5.png"
+  planes_bg: "/images/planes_bg.jpg"
+  planes_lights_1: "/images/planes_lights_1.png"
+  planes_lights_2: "/images/planes_lights_2.png"
+  planes_lights_3: "/images/planes_lights_3.png"
+  planes_lights_4: "/images/planes_lights_4.png"
+  planes_lights_5: "/images/planes_lights_5.png"
 
 scenes:
   planes:

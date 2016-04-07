@@ -1,7 +1,7 @@
 sprites:
-  immigration_bg: "images/immigration_bg.jpg"
-  immigration_left_door: "images/immigration_left_door.png"
-  immigration_right_door: "images/immigration_right_door.png"
+  immigration_bg: "/images/immigration_bg.jpg"
+  immigration_left_door: "/images/immigration_left_door.png"
+  immigration_right_door: "/images/immigration_right_door.png"
 
 scenes:
   immigration:

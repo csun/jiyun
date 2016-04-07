@@ -1,5 +1,5 @@
 sprites:
-  suitcase_bg: "images/suitcase_bg.jpg"
+  suitcase_bg: "/images/suitcase_bg.jpg"
 
 scenes:
   suitcase:

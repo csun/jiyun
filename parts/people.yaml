@@ -1,10 +1,10 @@
 sprites:
-  people_bg: "images/people_bg.jpg"
-  people_table: "images/people_table.png"
+  people_bg: "/images/people_bg.jpg"
+  people_table: "/images/people_table.png"
 
   people_hat:
     type: spritesheet
-    file: "images/people_hat.png"
+    file: "/images/people_hat.png"
     frameCounts: { x: 2, y: 1 }
     animations:
       place:
@@ -14,7 +14,7 @@ sprites:
 
   people_grandma:
     type: spritesheet
-    file: "images/people_grandma.png"
+    file: "/images/people_grandma.png"
     frameCounts: { x: 2, y: 1 }
     animations:
       walk:
@@ -24,7 +24,7 @@ sprites:
 
   people_nanny_hand:
     type: spritesheet
-    file: "images/people_nanny_hand.png"
+    file: "/images/people_nanny_hand.png"
     frameCounts: { x: 2, y: 1 }
     animations:
       wave:
@@ -34,7 +34,7 @@ sprites:
 
   people_worker_hand:
     type: spritesheet
-    file: "images/people_worker_hand.png"
+    file: "/images/people_worker_hand.png"
     frameCounts: { x: 2, y: 1 }
     animations:
       roll:

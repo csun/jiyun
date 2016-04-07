@@ -7,8 +7,8 @@ fonts:
     color: "#000000"
 
 sprites:
-  next_button: "images/next_button.png"
-  prev_button: "images/prev_button.png"
+  next_button: "/images/next_button.png"
+  prev_button: "/images/prev_button.png"
 
 controls:
   next_scene_control:
