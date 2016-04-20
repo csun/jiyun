@@ -1,18 +1,32 @@
+					</div>
+				</div>
 			</div>
 
-			{% if page.footer_image %}
 			<div class="push"></div>
-			{% endif %}
 		</div>
 
-		{% if page.footer_image %}
 		<footer class="pure-g footer">
-			<div class="pure-u-1-4"></div>
+			<div class="pure-u-3-24"></div>
 
-			<div class="pure-u-2-3">
+			<div class="pure-u-1-4">
+				<div class="parent-footer-text-container">
+					<div class="footer-text-container">
+						<p class="footer-text">
+							&copy; 2016<script>new Date().getFullYear()>2016&&document.write("-"+new Date().getFullYear());</script> Jane Youn
+						</p>
+
+						<p class="footer-text">
+							<a href="mailto:jiyunskorea@gmail.com">jiyunskorea@gmail.com</a>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="pure-u-1-2">
+				{% if page.footer_image %}
 				<img class="pure-img" src="{{ page.footer_image }}">
+				{% endif %}
 			</div>
 		</footer>
-		{% endif %}
 	</body>
 </html>
