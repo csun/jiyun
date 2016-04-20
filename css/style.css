@@ -1,3 +1,7 @@
+* {
+	margin: 0;
+	padding: 0;
+}
 
 body {
 	background-color: #FFF8F0;
@@ -138,12 +142,8 @@ a:visited{
 #mc_embed_signup input.button {display:block; width:35%; margin:0 0 10px 0; min-width:90px;}
 
 /* Sticky footer code */
-* {
-	margin: 0;
-	padding: 0;
-}
-
 html, body {
+	height: 100%;
 	min-height: 100%;
 	min-width: 600px;
 }
@@ -161,10 +161,17 @@ body {
 }
 
 .wrapper {
-	-webkit-box-flex: 1;
-	-webkit-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
+	-webkit-box-flex: 1 0 auto;
+	-webkit-flex: 1 0 auto;
+	-ms-flex: 1 0 auto;
+	flex: 1 0 auto;
+}
+
+footer {
+	-webkit-box-flex: none;
+	-webkit-flex: none;
+	-ms-flex: none;
+	flex: none;
 }
 
 .footer img {
