@@ -1,11 +1,16 @@
 {% include header.html %}
 
-<div class="main-image-container">
-	<img class="main-image pure-img" src="{{ page.main_image }}">
+<div class="pure-u-3-24 left-bar">
 </div>
 
-<div class="text">
-	{{ content }}
+<div class="pure-u-3-4">
+	<div class="main-image-container">
+		<img class="main-image pure-img" src="{{ page.main_image }}">
+	</div>
+
+	<div class="text">
+		{{ content }}
+	</div>
 </div>
 
 {% include footer.html %}
