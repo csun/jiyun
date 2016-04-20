@@ -522,7 +522,7 @@ scenes:
     nextScene: intro
   drive:
     background: 16777215
-    nextScene: in_car
+    nextScene: busy_street
     camera:
       triggers:
         onLoad:
@@ -775,7 +775,7 @@ scenes:
               name: openDoors
   in_car:
     background: in_car_bg
-    nextScene: busy_street
+    nextScene: drive
     actors:
       - sprite: in_car_dogs
         position:
@@ -1103,7 +1103,7 @@ scenes:
                 time: 0
   red_hair:
     background: red_hair_bg
-    nextScene: drive
+    nextScene: in_car
   suitcase:
     background: suitcase_bg
     disabledControls:
