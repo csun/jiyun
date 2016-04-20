@@ -4,4 +4,4 @@ sprites:
 scenes:
   red_hair:
     background: red_hair_bg
-    nextScene: drive
+    nextScene: in_car

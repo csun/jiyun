@@ -14,7 +14,7 @@ sprites:
 scenes:
   in_car:
     background: in_car_bg
-    nextScene: busy_street
+    nextScene: drive
       
     actors:
       - sprite: in_car_dogs

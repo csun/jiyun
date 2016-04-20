@@ -8,7 +8,7 @@ sprites:
 scenes:
   drive:
     background: 0xFFFFFF
-    nextScene: in_car
+    nextScene: busy_street
 
     camera:
       triggers:
