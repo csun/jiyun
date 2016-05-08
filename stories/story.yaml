@@ -77,7 +77,10 @@ sprites:
   drive_road1: /images/drive_road1.png
   drive_road2: /images/drive_road2.png
   drive_mountains: /images/drive_mountains.jpg
-  drive_buildings: /images/drive_buildings.png
+  drive_buildings1: /images/drive_buildings1.png
+  drive_buildings2: /images/drive_buildings2.png
+  drive_buildings3: /images/drive_buildings3.png
+  drive_buildings4: /images/drive_buildings4.png
   drive_car: /images/drive_car.png
   end_bg: /images/end_bg.jpg
   end_foot:
@@ -112,8 +115,8 @@ sprites:
     type: spritesheet
     file: /images/house_rainbow.png
     frameCounts:
-      x: 6
-      'y': 1
+      x: 2
+      'y': 3
     animations:
       grow:
         startFrame:
@@ -142,7 +145,8 @@ sprites:
   intro_bg: /images/intro_bg.jpg
   next_button: /images/next_button.png
   prev_button: /images/prev_button.png
-  outside_immigration_bg: /images/outside_immigration_bg.jpg
+  outside_immigration_bg1: /images/outside_immigration_bg1.jpg
+  outside_immigration_bg2: /images/outside_immigration_bg2.jpg
   outside_immigration_arms:
     type: spritesheet
     file: /images/outside_immigration_arms.png
@@ -554,9 +558,57 @@ scenes:
                   x: -2683
                   'y': 0
                 time: 20000
-      - sprite: drive_buildings
+      - sprite: drive_buildings1
         position:
           x: 0
+          'y': 200
+        triggers:
+          onLoad:
+            action: startAnimation
+            data:
+              name: move
+        animations:
+          move:
+            frames:
+              - moveRelative:
+                  x: -13167
+                  'y': 0
+                time: 20000
+      - sprite: drive_buildings2
+        position:
+          x: 2560
+          'y': 200
+        triggers:
+          onLoad:
+            action: startAnimation
+            data:
+              name: move
+        animations:
+          move:
+            frames:
+              - moveRelative:
+                  x: -13167
+                  'y': 0
+                time: 20000
+      - sprite: drive_buildings3
+        position:
+          x: 5120
+          'y': 200
+        triggers:
+          onLoad:
+            action: startAnimation
+            data:
+              name: move
+        animations:
+          move:
+            frames:
+              - moveRelative:
+                  x: -13167
+                  'y': 0
+                time: 20000
+      - sprite: drive_buildings4
+        position:
+          x: 7680
           'y': 200
         triggers:
           onLoad:
@@ -826,7 +878,7 @@ scenes:
     disabledControls:
       - prev_scene_control
   outside_immigration:
-    background: outside_immigration_bg
+    background: 16777215
     nextScene: red_hair
     disabledControls:
       - next_scene_control
@@ -846,6 +898,14 @@ scenes:
                 'y': 0
               time: 3000
     actors:
+      - sprite: outside_immigration_bg1
+        position:
+          x: 0
+          'y': 0
+      - sprite: outside_immigration_bg2
+        position:
+          x: 2560
+          'y': 0
       - sprite: outside_immigration_arms
         position:
           x: 3200
