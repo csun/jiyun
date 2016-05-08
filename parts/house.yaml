@@ -3,7 +3,7 @@ sprites:
   house_rainbow:
     type: spritesheet
     file: "/images/house_rainbow.png"
-    frameCounts: { x: 6, y: 1 }
+    frameCounts: { x: 2, y: 3 }
     animations:
       grow:
         startFrame: { x: 0, y: 0 }

@@ -1,5 +1,6 @@
 sprites:
-  outside_immigration_bg: "/images/outside_immigration_bg.jpg"
+  outside_immigration_bg1: "/images/outside_immigration_bg1.jpg"
+  outside_immigration_bg2: "/images/outside_immigration_bg2.jpg"
   outside_immigration_arms:
     type: spritesheet
     file: "/images/outside_immigration_arms.png"
@@ -12,7 +13,7 @@ sprites:
 
 scenes:
   outside_immigration:
-    background: outside_immigration_bg
+    background: 0xFFFFFF
     nextScene: red_hair
 
     disabledControls:
@@ -33,6 +34,12 @@ scenes:
               time: 3000
 
     actors:
+      - sprite: outside_immigration_bg1
+        position: { x: 0, y: 0 }
+
+      - sprite: outside_immigration_bg2
+        position: { x: 2560, y: 0 }
+
       - sprite: outside_immigration_arms
         position: { x: 3200, y: 145 }
         triggers:

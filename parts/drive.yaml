@@ -2,7 +2,12 @@ sprites:
   drive_road1: "/images/drive_road1.png"
   drive_road2: "/images/drive_road2.png"
   drive_mountains: "/images/drive_mountains.jpg"
-  drive_buildings: "/images/drive_buildings.png"
+  # We need to split these up into smaller images because some
+  # browsers cannot handle textures that are too large.
+  drive_buildings1: "/images/drive_buildings1.png"
+  drive_buildings2: "/images/drive_buildings2.png"
+  drive_buildings3: "/images/drive_buildings3.png"
+  drive_buildings4: "/images/drive_buildings4.png"
   drive_car: "/images/drive_car.png"
 
 scenes:
@@ -40,8 +45,50 @@ scenes:
               - moveRelative: { x: -2683, y: 0 }
                 time: 20000
 
-      - sprite: drive_buildings
+      - sprite: drive_buildings1
         position: { x: 0, y: 200 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data: { name: move }
+
+        animations:
+          move:
+            frames:
+              - moveRelative: { x: -13167, y: 0 }
+                time: 20000
+
+      - sprite: drive_buildings2
+        position: { x: 2560, y: 200 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data: { name: move }
+
+        animations:
+          move:
+            frames:
+              - moveRelative: { x: -13167, y: 0 }
+                time: 20000
+
+      - sprite: drive_buildings3
+        position: { x: 5120, y: 200 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data: { name: move }
+
+        animations:
+          move:
+            frames:
+              - moveRelative: { x: -13167, y: 0 }
+                time: 20000
+
+      - sprite: drive_buildings4
+        position: { x: 7680, y: 200 }
 
         triggers:
           onLoad:

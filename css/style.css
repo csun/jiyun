@@ -116,6 +116,8 @@ a:visited{
 
 #viewer-container * {
 	border: none;
+	width: 88%;
+	height: 49.5%;
 }
 
 /* Custom Mailchimp Styling */
