@@ -1,9 +1,10 @@
 sprites:
   drive_road1: "/images/drive_road1.png"
   drive_road2: "/images/drive_road2.png"
-  drive_mountains: "/images/drive_mountains.jpg"
   # We need to split these up into smaller images because some
   # browsers cannot handle textures that are too large.
+  drive_mountains1: "/images/drive_mountains1.jpg"
+  drive_mountains2: "/images/drive_mountains2.jpg"
   drive_buildings1: "/images/drive_buildings1.png"
   drive_buildings2: "/images/drive_buildings2.png"
   drive_buildings3: "/images/drive_buildings3.png"
@@ -29,7 +30,7 @@ scenes:
               time: 2000
 
     actors:
-      - sprite: drive_mountains
+      - sprite: drive_mountains1
         position: { x: 0, y: 0 }
 
         triggers:
@@ -42,7 +43,23 @@ scenes:
         animations:
           move:
             frames:
-              - moveRelative: { x: -2683, y: 0 }
+              - moveRelative: { x: -2560, y: 0 }
+                time: 20000
+
+      - sprite: drive_mountains2
+        position: { x: 2560, y: 0 }
+
+        triggers:
+          onLoad:
+            - action: startAnimation
+              data: { name: move }
+            - action: nextScene # Apparently camera can't change scenes, so we have to do it here.
+              delay: 10000
+
+        animations:
+          move:
+            frames:
+              - moveRelative: { x: -2560, y: 0 }
                 time: 20000
 
       - sprite: drive_buildings1
