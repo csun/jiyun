@@ -1,9 +1,9 @@
 sprites:
-  outside_immigration_bg1: "/images/outside_immigration_bg1.jpg"
-  outside_immigration_bg2: "/images/outside_immigration_bg2.jpg"
+  outside_immigration_bg1: "/images/chapter_1/outside_immigration_bg1.jpg"
+  outside_immigration_bg2: "/images/chapter_1/outside_immigration_bg2.jpg"
   outside_immigration_arms:
     type: spritesheet
-    file: "/images/outside_immigration_arms.png"
+    file: "/images/chapter_1/outside_immigration_arms.png"
     frameCounts: { x: 2, y: 1 }
     animations:
       wave:

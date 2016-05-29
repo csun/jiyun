@@ -1,9 +1,9 @@
 sprites:
-  clothes_bg: "/images/clothes_bg.jpg"
+  clothes_bg: "/images/chapter_1/clothes_bg.jpg"
 
   clothes_suitcase:
     type: spritesheet
-    file: "/images/clothes_suitcase.png"
+    file: "/images/chapter_1/clothes_suitcase.png"
     frameCounts: { x: 2, y: 1 }
     animations:
       open:

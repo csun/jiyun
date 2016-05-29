@@ -1,6 +1,6 @@
 function startViewer(storyFile) {
   var containerElement = document.getElementById('viewer-container');
-  containerElement.style.visibility = 'hidden';
+  var loadingArea = document.getElementById('loading-area');
 
   var windowWidth = window.innerWidth
     || document.documentElement.clientWidth
@@ -22,14 +22,14 @@ function startViewer(storyFile) {
   var loadingBar = document.getElementById('loading-bar');
   function loadingCallback(percentage){
     if(percentage == 1) {
-      var loadingBarContainer = document.getElementById(
-          'loading-bar-container');
       containerElement.style.visibility = 'visible';
-      loadingBarContainer.style.visibility = 'hidden';
+      loadingArea.style.visibility = 'hidden';
     }
     else {
-      loadingBar.style.width = (percentage * 100) + '%';
+      loadingArea.style.visibility = 'visible';
     }
+
+    loadingBar.style.width = (percentage * 100) + '%';
   }
 
   scarry.init({

@@ -1,15 +1,15 @@
 sprites:
-  drive_road1: "/images/drive_road1.png"
-  drive_road2: "/images/drive_road2.png"
+  drive_road1: "/images/chapter_1/drive_road1.png"
+  drive_road2: "/images/chapter_1/drive_road2.png"
   # We need to split these up into smaller images because some
   # browsers cannot handle textures that are too large.
-  drive_mountains1: "/images/drive_mountains1.jpg"
-  drive_mountains2: "/images/drive_mountains2.jpg"
-  drive_buildings1: "/images/drive_buildings1.png"
-  drive_buildings2: "/images/drive_buildings2.png"
-  drive_buildings3: "/images/drive_buildings3.png"
-  drive_buildings4: "/images/drive_buildings4.png"
-  drive_car: "/images/drive_car.png"
+  drive_mountains1: "/images/chapter_1/drive_mountains1.jpg"
+  drive_mountains2: "/images/chapter_1/drive_mountains2.jpg"
+  drive_buildings1: "/images/chapter_1/drive_buildings1.png"
+  drive_buildings2: "/images/chapter_1/drive_buildings2.png"
+  drive_buildings3: "/images/chapter_1/drive_buildings3.png"
+  drive_buildings4: "/images/chapter_1/drive_buildings4.png"
+  drive_car: "/images/chapter_1/drive_car.png"
 
 scenes:
   drive:

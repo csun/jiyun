@@ -1,5 +1,5 @@
 sprites:
-  intro_bg: "/images/intro_bg.jpg"
+  intro_bg: "/images/chapter_1/intro_bg.jpg"
 
 scenes:
   intro:

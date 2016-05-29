@@ -1,20 +1,19 @@
 sprites:
-  bow_bg: "/images/bow_bg.jpg"
-  bow_jiyun_bubble: "/images/bow_jiyun_bubble.png"
-  bow_jiyun:
+  house_bg: "/images/chapter_1/house_bg.jpg"
+  house_rainbow:
     type: spritesheet
-    file: "/images/bow_jiyun.png"
-    frameCounts: { x: 7, y: 1 }
+    file: "/images/chapter_1/house_rainbow.png"
+    frameCounts: { x: 2, y: 3 }
     animations:
-      bow:
+      grow:
         startFrame: { x: 0, y: 0 }
-        count: 7
-        fps: 2
+        count: 6
+        fps: 3.5
 
 scenes:
-  bow:
-    background: bow_bg
-    nextScene: people
+  house:
+    background: house_bg
+    nextScene: bow
 
     disabledControls:
       - next_scene_control
@@ -59,34 +58,16 @@ scenes:
               - fade: -1
                 time: 1000
 
-      - sprite: bow_jiyun
-        position: { x: 1160, y: 300 }
-        triggers:
-          onLoad:
-            - action: broadcastTrigger
-              delay: 2000
-              data: { name: bow }
-            - action: broadcastTrigger
-              delay: 10000
-              data: { name: bow }
-
-          bow:
-            - action: startSpriteAnimation
-              data: { name: bow }
-            - action: startSpriteAnimation
-              delay: 3000
-              data: 
-                name: bow
-                options: { reverse: true }
-
-      - sprite: bow_jiyun_bubble
-        position: { x: 1290, y: 220 }
+      - sprite: house_rainbow
+        position: { x: 700, y: 0 }
 
         triggers:
           onLoad:
-            - delay: 2000
             - action: setHidden
               data: true
             - action: setHidden
-              delay: 17000
+              delay: 1000
               data: false
+            - action: startSpriteAnimation
+              delay: 1000
+              data: { name: grow }

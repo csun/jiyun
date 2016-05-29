@@ -1,6 +1,5 @@
 sprites:
-  tbc_bg: "/images/tbc_bg.jpg"
-  tbc_button: "/images/tbc_button.png"
+  tbc_bg: "/images/chapter_1/tbc_bg.jpg"
 
 scenes:
   tbc:

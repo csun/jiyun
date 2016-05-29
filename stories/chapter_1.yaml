@@ -1,11 +1,11 @@
 sprites:
-  1977_bg: /images/1977_bg.jpg
-  1977_lights: /images/1977_lights.png
-  bow_bg: /images/bow_bg.jpg
-  bow_jiyun_bubble: /images/bow_jiyun_bubble.png
+  1977_bg: /images/chapter_1/1977_bg.jpg
+  1977_lights: /images/chapter_1/1977_lights.png
+  bow_bg: /images/chapter_1/bow_bg.jpg
+  bow_jiyun_bubble: /images/chapter_1/bow_jiyun_bubble.png
   bow_jiyun:
     type: spritesheet
-    file: /images/bow_jiyun.png
+    file: /images/chapter_1/bow_jiyun.png
     frameCounts:
       x: 7
       'y': 1
@@ -16,11 +16,11 @@ sprites:
           'y': 0
         count: 7
         fps: 2
-  busy_street_bg: /images/busy_street_bg.jpg
-  busy_street_wall: /images/busy_street_wall.png
+  busy_street_bg: /images/chapter_1/busy_street_bg.jpg
+  busy_street_wall: /images/chapter_1/busy_street_wall.png
   busy_street_cart:
     type: spritesheet
-    file: /images/busy_street_cart.png
+    file: /images/chapter_1/busy_street_cart.png
     frameCounts:
       x: 2
       'y': 1
@@ -33,7 +33,7 @@ sprites:
         fps: 1.5
   busy_street_bike:
     type: spritesheet
-    file: /images/busy_street_bike.png
+    file: /images/chapter_1/busy_street_bike.png
     frameCounts:
       x: 2
       'y': 1
@@ -46,7 +46,7 @@ sprites:
         fps: 3.5
   busy_street_women:
     type: spritesheet
-    file: /images/busy_street_women.png
+    file: /images/chapter_1/busy_street_women.png
     frameCounts:
       x: 2
       'y': 1
@@ -57,10 +57,10 @@ sprites:
           'y': 0
         count: 2
         fps: 2
-  clothes_bg: /images/clothes_bg.jpg
+  clothes_bg: /images/chapter_1/clothes_bg.jpg
   clothes_suitcase:
     type: spritesheet
-    file: /images/clothes_suitcase.png
+    file: /images/chapter_1/clothes_suitcase.png
     frameCounts:
       x: 2
       'y': 1
@@ -71,22 +71,19 @@ sprites:
           'y': 0
         count: 2
         fps: 2
-  cover_bg: /images/cover_bg.jpg
-  cover_button: /images/cover_button.png
-  dedication_bg: /images/dedication_bg.jpg
-  drive_road1: /images/drive_road1.png
-  drive_road2: /images/drive_road2.png
-  drive_mountains1: /images/drive_mountains1.jpg
-  drive_mountains2: /images/drive_mountains2.jpg
-  drive_buildings1: /images/drive_buildings1.png
-  drive_buildings2: /images/drive_buildings2.png
-  drive_buildings3: /images/drive_buildings3.png
-  drive_buildings4: /images/drive_buildings4.png
-  drive_car: /images/drive_car.png
-  end_bg: /images/end_bg.jpg
+  drive_road1: /images/chapter_1/drive_road1.png
+  drive_road2: /images/chapter_1/drive_road2.png
+  drive_mountains1: /images/chapter_1/drive_mountains1.jpg
+  drive_mountains2: /images/chapter_1/drive_mountains2.jpg
+  drive_buildings1: /images/chapter_1/drive_buildings1.png
+  drive_buildings2: /images/chapter_1/drive_buildings2.png
+  drive_buildings3: /images/chapter_1/drive_buildings3.png
+  drive_buildings4: /images/chapter_1/drive_buildings4.png
+  drive_car: /images/chapter_1/drive_car.png
+  end_bg: /images/chapter_1/end_bg.jpg
   end_foot:
     type: spritesheet
-    file: /images/end_foot.png
+    file: /images/chapter_1/end_foot.png
     frameCounts:
       x: 2
       'y': 1
@@ -97,10 +94,10 @@ sprites:
           'y': 0
         count: 2
         fps: 0.8
-  foot_bg: /images/foot_bg.jpg
+  foot_bg: /images/chapter_1/foot_bg.jpg
   foot_pencil:
     type: spritesheet
-    file: /images/foot_pencil.png
+    file: /images/chapter_1/foot_pencil.png
     frameCounts:
       x: 2
       'y': 1
@@ -111,10 +108,10 @@ sprites:
           'y': 0
         count: 2
         fps: 0.75
-  house_bg: /images/house_bg.jpg
+  house_bg: /images/chapter_1/house_bg.jpg
   house_rainbow:
     type: spritesheet
-    file: /images/house_rainbow.png
+    file: /images/chapter_1/house_rainbow.png
     frameCounts:
       x: 2
       'y': 3
@@ -125,14 +122,14 @@ sprites:
           'y': 0
         count: 6
         fps: 3.5
-  immigration_bg: /images/immigration_bg.jpg
-  immigration_left_door: /images/immigration_left_door.png
-  immigration_right_door: /images/immigration_right_door.png
-  in_car_bg: /images/in_car_bg.jpg
-  in_car_hand: /images/in_car_hand.png
+  immigration_bg: /images/chapter_1/immigration_bg.jpg
+  immigration_left_door: /images/chapter_1/immigration_left_door.png
+  immigration_right_door: /images/chapter_1/immigration_right_door.png
+  in_car_bg: /images/chapter_1/in_car_bg.jpg
+  in_car_hand: /images/chapter_1/in_car_hand.png
   in_car_dogs:
     type: spritesheet
-    file: /images/in_car_dogs.png
+    file: /images/chapter_1/in_car_dogs.png
     frameCounts:
       x: 2
       'y': 1
@@ -143,14 +140,14 @@ sprites:
           'y': 0
         count: 2
         fps: 1
-  intro_bg: /images/intro_bg.jpg
-  next_button: /images/next_button.png
-  prev_button: /images/prev_button.png
-  outside_immigration_bg1: /images/outside_immigration_bg1.jpg
-  outside_immigration_bg2: /images/outside_immigration_bg2.jpg
+  intro_bg: /images/chapter_1/intro_bg.jpg
+  next_button: /images/chapter_1/next_button.png
+  prev_button: /images/chapter_1/prev_button.png
+  outside_immigration_bg1: /images/chapter_1/outside_immigration_bg1.jpg
+  outside_immigration_bg2: /images/chapter_1/outside_immigration_bg2.jpg
   outside_immigration_arms:
     type: spritesheet
-    file: /images/outside_immigration_arms.png
+    file: /images/chapter_1/outside_immigration_arms.png
     frameCounts:
       x: 2
       'y': 1
@@ -161,11 +158,11 @@ sprites:
           'y': 0
         count: 2
         fps: 2
-  people_bg: /images/people_bg.jpg
-  people_table: /images/people_table.png
+  people_bg: /images/chapter_1/people_bg.jpg
+  people_table: /images/chapter_1/people_table.png
   people_hat:
     type: spritesheet
-    file: /images/people_hat.png
+    file: /images/chapter_1/people_hat.png
     frameCounts:
       x: 2
       'y': 1
@@ -178,7 +175,7 @@ sprites:
         fps: 0.3
   people_grandma:
     type: spritesheet
-    file: /images/people_grandma.png
+    file: /images/chapter_1/people_grandma.png
     frameCounts:
       x: 2
       'y': 1
@@ -191,7 +188,7 @@ sprites:
         fps: 2
   people_nanny_hand:
     type: spritesheet
-    file: /images/people_nanny_hand.png
+    file: /images/chapter_1/people_nanny_hand.png
     frameCounts:
       x: 2
       'y': 1
@@ -204,7 +201,7 @@ sprites:
         fps: 1
   people_worker_hand:
     type: spritesheet
-    file: /images/people_worker_hand.png
+    file: /images/chapter_1/people_worker_hand.png
     frameCounts:
       x: 2
       'y': 1
@@ -215,16 +212,15 @@ sprites:
           'y': 0
         count: 2
         fps: 1.5
-  planes_bg: /images/planes_bg.jpg
-  planes_lights_1: /images/planes_lights_1.png
-  planes_lights_2: /images/planes_lights_2.png
-  planes_lights_3: /images/planes_lights_3.png
-  planes_lights_4: /images/planes_lights_4.png
-  planes_lights_5: /images/planes_lights_5.png
-  red_hair_bg: /images/red_hair_bg.jpg
-  suitcase_bg: /images/suitcase_bg.jpg
-  tbc_bg: /images/tbc_bg.jpg
-  tbc_button: /images/tbc_button.png
+  planes_bg: /images/chapter_1/planes_bg.jpg
+  planes_lights_1: /images/chapter_1/planes_lights_1.png
+  planes_lights_2: /images/chapter_1/planes_lights_2.png
+  planes_lights_3: /images/chapter_1/planes_lights_3.png
+  planes_lights_4: /images/chapter_1/planes_lights_4.png
+  planes_lights_5: /images/chapter_1/planes_lights_5.png
+  red_hair_bg: /images/chapter_1/red_hair_bg.jpg
+  suitcase_bg: /images/chapter_1/suitcase_bg.jpg
+  tbc_bg: /images/chapter_1/tbc_bg.jpg
 scenes:
   '1977':
     background: 1977_bg
@@ -508,23 +504,6 @@ scenes:
               delay: 2000
               data:
                 destination: suitcase
-  cover:
-    background: cover_bg
-    nextScene: dedication
-    disabledControls:
-      - next_scene_control
-      - prev_scene_control
-    actors:
-      - sprite: cover_button
-        position:
-          x: 2000
-          'y': 570
-        triggers:
-          onClick:
-            action: nextScene
-  dedication:
-    background: dedication_bg
-    nextScene: intro
   drive:
     background: 16777215
     nextScene: busy_street

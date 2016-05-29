@@ -1,6 +1,6 @@
 sprites:
-  1977_bg: "/images/1977_bg.jpg"
-  1977_lights: "/images/1977_lights.png"
+  1977_bg: "/images/chapter_1/1977_bg.jpg"
+  1977_lights: "/images/chapter_1/1977_lights.png"
 
 scenes:
   1977:
@@ -30,7 +30,7 @@ scenes:
             frames:
               - fade: -1
                 time: 1000
-                   
+
       - sprite: next_button
         position: { x: 2290, y: 1280 }
 
