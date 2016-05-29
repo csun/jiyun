@@ -129,10 +129,26 @@ a:visited{
 	justify-content: center;
 }
 
-#viewer-container * {
+#viewer-container canvas {
 	border: none;
 	width: 88%;
 	height: 49.5%;
+}
+
+#loading-bar-container {
+	background-color: #000;
+	position: absolute;
+	top: 50%;
+	left: 15%;
+	width: 70%;
+	height: 40px;
+	transform: translate(0, 50%);
+}
+
+#loading-bar {
+	background-color: #AD7B51;
+	height: 100%;
+	width: 0%;
 }
 
 /* Custom Mailchimp Styling */
@@ -151,7 +167,7 @@ a:visited{
 #mc_embed_signup .button {clear:both; background-color: #777; border: 0 none; border-radius:4px; letter-spacing:.03em; color: #FFFFFF; cursor: pointer; display: inline-block; font-size:15px; height: 32px; line-height: 32px; margin: 0 5px 10px 0; padding:0; text-align: center; text-decoration: none; vertical-align: top; white-space: nowrap; width: auto; -webkit-transition: all 0.23s ease-in-out 0s; transition: all 0.23s ease-in-out 0s;}
 #mc_embed_signup .button:hover {background-color:#AD7B51;}
 #mc_embed_signup .small-meta {font-size: 11px;}
-#mc_embed_signup .nowrap {white-space:nowrap;}     
+#mc_embed_signup .nowrap {white-space:nowrap;}
 #mc_embed_signup .clear {clear:none; display:inline;}
 
 #mc_embed_signup label {display:block; font-size:16px; padding-bottom:10px; font-weight:bold;}
