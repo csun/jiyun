@@ -197,13 +197,14 @@ scenes:
               name: blink
               options:
                 loop: true
+          open:
+            action: startAnimation
+            data:
+              name: hide
           onClick:
-            - action: broadcastTrigger
-              data:
-                name: open
-            - action: startAnimation
-              data:
-                name: hide
+            action: broadcastTrigger
+            data:
+              name: open
         animations:
           blink:
             frames:
