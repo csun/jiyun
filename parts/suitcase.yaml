@@ -1,9 +1,0 @@
-sprites:
-  suitcase_bg: "/images/suitcase_bg.jpg"
-
-scenes:
-  suitcase:
-    background: suitcase_bg
-
-    disabledControls:
-      - next_scene_control

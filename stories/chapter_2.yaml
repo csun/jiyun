@@ -1,0 +1,473 @@
+sprites:
+  brothers_bg: /images/chapter_2/brothers_bg.jpg
+  closet_bg: /images/chapter_2/closet_bg.jpg
+  closet_door_1: /images/chapter_2/closet_door_1.png
+  closet_door_2: /images/chapter_2/closet_door_2.png
+  closet_door_3: /images/chapter_2/closet_door_3.png
+  closet_door_4: /images/chapter_2/closet_door_4.png
+  closet_arrow: /images/chapter_2/closet_arrow.png
+  english_1_bg: /images/chapter_2/english_1_bg.jpg
+  english_1_head:
+    type: spritesheet
+    file: /images/chapter_2/english_1_head.png
+    frameCounts:
+      x: 3
+      'y': 1
+    animations:
+      talk:
+        startFrame:
+          x: 0
+          'y': 0
+        count: 3
+        fps: 4
+      idle:
+        startFrame:
+          x: 0
+          'y': 0
+        count: 1
+        fps: 0
+  english_2_bg: /images/chapter_2/english_2_bg.jpg
+  english_3_bg: /images/chapter_2/english_3_bg.jpg
+  excused_bg: /images/chapter_2/excused_bg.jpg
+  family_bg: /images/chapter_2/family_bg.jpg
+  gifts_bg: /images/chapter_2/gifts_bg.jpg
+  guests_bg: /images/chapter_2/guests_bg.jpg
+  bowing_girl:
+    type: spritesheet
+    file: /images/chapter_2/bowing_girl.png
+    frameCounts:
+      x: 2
+      'y': 1
+    animations:
+      bow:
+        startFrame:
+          x: 0
+          'y': 0
+        count: 2
+        fps: 1
+      idle:
+        startFrame:
+          x: 0
+          'y': 0
+        count: 1
+        fps: 1
+  guests_leave_bg: /images/chapter_2/guests_leave_bg.jpg
+  next_button: /images/chapter_1/next_button.png
+  prev_button: /images/chapter_1/prev_button.png
+  questions_bg: /images/chapter_2/questions_bg.jpg
+  return_gifts_bg: /images/chapter_2/return_gifts_bg.jpg
+  sitting_bg: /images/chapter_2/sitting_bg.jpg
+  sitting_fan:
+    type: spritesheet
+    file: /images/chapter_2/sitting_fan.png
+    frameCounts:
+      x: 2
+      'y': 1
+    animations:
+      move:
+        startFrame:
+          x: 0
+          'y': 0
+        count: 2
+        fps: 4
+  sitting_fruit:
+    type: spritesheet
+    file: /images/chapter_2/sitting_fruit.png
+    frameCounts:
+      x: 2
+      'y': 1
+    animations:
+      move:
+        startFrame:
+          x: 0
+          'y': 0
+        count: 2
+        fps: 0.5
+  sitting_man_fruit:
+    type: spritesheet
+    file: /images/chapter_2/sitting_man_fruit.png
+    frameCounts:
+      x: 2
+      'y': 1
+    animations:
+      move:
+        startFrame:
+          x: 0
+          'y': 0
+        count: 2
+        fps: 0.35
+  sitting_smoking:
+    type: spritesheet
+    file: /images/chapter_2/sitting_smoking.png
+    frameCounts:
+      x: 2
+      'y': 1
+    animations:
+      move:
+        startFrame:
+          x: 0
+          'y': 0
+        count: 2
+        fps: 0.3
+  sitting_coffee:
+    type: spritesheet
+    file: /images/chapter_2/sitting_coffee.png
+    frameCounts:
+      x: 2
+      'y': 1
+    animations:
+      move:
+        startFrame:
+          x: 0
+          'y': 0
+        count: 2
+        fps: 0.4
+  throw_bg: /images/chapter_2/throw_bg.jpg
+  throw_girl:
+    type: spritesheet
+    file: /images/chapter_2/throw_girl.png
+    frameCounts:
+      x: 1
+      'y': 2
+    animations:
+      throw:
+        startFrame:
+          x: 0
+          'y': 0
+        count: 2
+        fps: 1
+scenes:
+  brothers:
+    background: brothers_bg
+    nextScene: guests
+  closet:
+    background: closet_bg
+    nextScene: sitting
+    disabledControls:
+      - prev_scene_control
+      - next_scene_control
+    actors:
+      - sprite: closet_door_1
+        position:
+          x: 260
+          'y': 195
+        triggers:
+          onClick:
+            action: broadcastTrigger
+            data:
+              name: open
+          open:
+            action: fade
+            data: 1
+      - sprite: closet_door_2
+        position:
+          x: 568
+          'y': 185
+        triggers:
+          open:
+            action: fade
+            data: 1
+            delay: 1000
+      - sprite: closet_door_3
+        position:
+          x: 872
+          'y': 180
+        triggers:
+          open:
+            action: fade
+            data: 1
+            delay: 2000
+      - sprite: closet_door_4
+        position:
+          x: 1188
+          'y': 180
+        triggers:
+          open:
+            action: fade
+            data: 1
+            delay: 3000
+      - sprite: closet_arrow
+        position:
+          x: 275
+          'y': 760
+        triggers:
+          onLoad:
+            action: startAnimation
+            data:
+              name: blink
+              options:
+                loop: true
+          open:
+            action: startAnimation
+            data:
+              name: hide
+          onClick:
+            action: broadcastTrigger
+            data:
+              name: open
+        animations:
+          blink:
+            frames:
+              - time: 1000
+              - fade: 1
+                time: 0
+              - time: 1000
+              - fade: -1
+                time: 0
+          hide:
+            frames:
+              - setHidden: true
+                time: 0
+      - sprite: prev_button
+        position:
+          x: 210
+          'y': 1280
+        triggers:
+          onLoad:
+            - action: setHidden
+              data: true
+            - action: fade
+              data: 1
+          open:
+            - action: setHidden
+              data: false
+            - action: startAnimation
+              delay: 4000
+              data:
+                name: fadeIn
+          onClick:
+            action: prevScene
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+      - sprite: next_button
+        position:
+          x: 2290
+          'y': 1280
+        triggers:
+          onLoad:
+            - action: setHidden
+              data: true
+            - action: fade
+              data: 1
+          open:
+            - action: setHidden
+              data: false
+            - action: startAnimation
+              delay: 4000
+              data:
+                name: fadeIn
+          onClick:
+            action: nextScene
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+  english_1:
+    background: english_1_bg
+    nextScene: english_2
+    actors:
+      - sprite: english_1_head
+        position:
+          x: 230
+          'y': 563
+        triggers:
+          talk:
+            - action: startSpriteAnimation
+              data:
+                name: talk
+            - action: startSpriteAnimation
+              data:
+                name: idle
+              delay: 1000
+            - action: broadcastTrigger
+              data:
+                name: talk
+              delay: 4000
+          onLoad:
+            action: broadcastTrigger
+            data:
+              name: talk
+  english_2:
+    background: english_2_bg
+    nextScene: english_3
+  english_3:
+    background: english_3_bg
+    nextScene: excused
+  excused:
+    background: excused_bg
+    nextScene: return_gifts
+  family:
+    background: family_bg
+    nextScene: brothers
+    disabledControls:
+      - prev_scene_control
+  gifts:
+    background: gifts_bg
+    nextScene: closet
+  guests:
+    background: guests_bg
+    nextScene: gifts
+    actors:
+      - sprite: bowing_girl
+        position:
+          x: 1380
+          'y': 604
+        triggers:
+          onLoad:
+            - action: broadcastTrigger
+              data:
+                name: bow
+          bow:
+            - action: startSpriteAnimation
+              data:
+                name: bow
+                options:
+                  loop: true
+            - action: startSpriteAnimation
+              data:
+                name: idle
+              delay: 2500
+            - action: broadcastTrigger
+              delay: 6000
+              data:
+                name: bow
+  guests_leave:
+    background: guests_leave_bg
+    nextScene: throw
+    actors:
+      - sprite: bowing_girl
+        position:
+          x: 1380
+          'y': 604
+        triggers:
+          onLoad:
+            - action: broadcastTrigger
+              data:
+                name: bow
+          bow:
+            - action: startSpriteAnimation
+              data:
+                name: bow
+                options:
+                  loop: true
+            - action: startSpriteAnimation
+              data:
+                name: idle
+              delay: 2500
+            - action: broadcastTrigger
+              delay: 6000
+              data:
+                name: bow
+  questions:
+    background: questions_bg
+    nextScene: english_1
+  return_gifts:
+    background: return_gifts_bg
+    nextScene: guests_leave
+  sitting:
+    background: sitting_bg
+    nextScene: questions
+    actors:
+      - sprite: sitting_fan
+        position:
+          x: 2040
+          'y': 716
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data:
+              name: move
+              options:
+                loop: true
+      - sprite: sitting_fruit
+        position:
+          x: 1970
+          'y': 920
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data:
+              name: move
+              options:
+                loop: true
+      - sprite: sitting_man_fruit
+        position:
+          x: 517
+          'y': 659
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data:
+              name: move
+              options:
+                loop: true
+      - sprite: sitting_smoking
+        position:
+          x: 694
+          'y': 1170
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data:
+              name: move
+              options:
+                loop: true
+      - sprite: sitting_coffee
+        position:
+          x: 1365
+          'y': 647
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data:
+              name: move
+              options:
+                loop: true
+  throw:
+    background: throw_bg
+    nextScene: gifts
+    disabledControls:
+      - next_scene_control
+    actors:
+      - sprite: throw_girl
+        position:
+          x: 440
+          'y': 50
+        triggers:
+          onLoad:
+            action: broadcastTrigger
+            data:
+              name: throw
+          throw:
+            - action: startSpriteAnimation
+              data:
+                name: throw
+            - action: broadcastTrigger
+              data:
+                name: throw
+              delay: 4000
+entryScene: family
+sceneSize:
+  width: 2560
+  height: 1440
+controls:
+  next_scene_control:
+    sprite: next_button
+    position:
+      x: 2290
+      'y': 1280
+    triggers:
+      onClick:
+        action: nextScene
+  prev_scene_control:
+    sprite: prev_button
+    position:
+      x: 210
+      'y': 1280
+    triggers:
+      onClick:
+        action: prevScene

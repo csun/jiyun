@@ -1,0 +1,92 @@
+sprites:
+  bow_bg: "/images/chapter_1/bow_bg.jpg"
+  bow_jiyun_bubble: "/images/chapter_1/bow_jiyun_bubble.png"
+  bow_jiyun:
+    type: spritesheet
+    file: "/images/chapter_1/bow_jiyun.png"
+    frameCounts: { x: 7, y: 1 }
+    animations:
+      bow:
+        startFrame: { x: 0, y: 0 }
+        count: 7
+        fps: 2
+
+scenes:
+  bow:
+    background: bow_bg
+    nextScene: people
+
+    disabledControls:
+      - next_scene_control
+      - prev_scene_control
+
+    actors:
+      - sprite: prev_button
+        position: { x: 210, y: 1280 }
+
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 6000
+              data: { name: fadeIn }
+          onClick:
+            action: prevScene
+
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+
+      - sprite: next_button
+        position: { x: 2290, y: 1280 }
+
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 6000
+              data: { name: fadeIn }
+          onClick:
+            action: nextScene
+
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+
+      - sprite: bow_jiyun
+        position: { x: 1160, y: 300 }
+        triggers:
+          onLoad:
+            - action: broadcastTrigger
+              delay: 2000
+              data: { name: bow }
+            - action: broadcastTrigger
+              delay: 10000
+              data: { name: bow }
+
+          bow:
+            - action: startSpriteAnimation
+              data: { name: bow }
+            - action: startSpriteAnimation
+              delay: 3000
+              data:
+                name: bow
+                options: { reverse: true }
+
+      - sprite: bow_jiyun_bubble
+        position: { x: 1290, y: 220 }
+
+        triggers:
+          onLoad:
+            - delay: 2000
+            - action: setHidden
+              data: true
+            - action: setHidden
+              delay: 17000
+              data: false

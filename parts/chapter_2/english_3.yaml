@@ -1,0 +1,7 @@
+sprites:
+  english_3_bg: "/images/chapter_2/english_3_bg.jpg"
+
+scenes:
+  english_3:
+    background: english_3_bg
+    nextScene: excused

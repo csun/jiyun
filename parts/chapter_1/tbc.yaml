@@ -1,0 +1,18 @@
+sprites:
+  tbc_bg: "/images/chapter_1/tbc_bg.jpg"
+
+scenes:
+  tbc:
+    background: tbc_bg
+
+    disabledControls:
+      - next_scene_control
+
+    actors:
+      - sprite: tbc_button
+        position: { x: 2250, y: 1239 }
+
+        triggers:
+          onClick:
+            action: changeScene
+            data: { destination: cover }

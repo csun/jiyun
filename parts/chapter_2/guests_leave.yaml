@@ -1,0 +1,28 @@
+sprites:
+  guests_leave_bg: "/images/chapter_2/guests_leave_bg.jpg"
+
+scenes:
+  guests_leave:
+    background: guests_leave_bg
+    nextScene: throw
+
+    actors:
+      - sprite: bowing_girl
+        position: { x: 1380, y: 604 }
+
+        triggers:
+          onLoad:
+            - action: broadcastTrigger
+              data: { name: bow }
+          bow:
+            - action: startSpriteAnimation
+              data:
+                name: bow
+                options: { loop: true }
+            - action: startSpriteAnimation
+              data: { name: idle }
+              delay: 2500
+            - action: broadcastTrigger
+              delay: 6000
+              data: { name: bow }
+

@@ -1,0 +1,88 @@
+sprites:
+  outside_immigration_bg1: "/images/chapter_1/outside_immigration_bg1.jpg"
+  outside_immigration_bg2: "/images/chapter_1/outside_immigration_bg2.jpg"
+  outside_immigration_arms:
+    type: spritesheet
+    file: "/images/chapter_1/outside_immigration_arms.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      wave:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 2
+
+scenes:
+  outside_immigration:
+    background: 0xFFFFFF
+    nextScene: red_hair
+
+    disabledControls:
+      - next_scene_control
+      - prev_scene_control
+
+    camera:
+      triggers:
+        onLoad:
+          - action: startAnimation
+            delay: 2000
+            data: { name: slideOver }
+
+      animations:
+        slideOver:
+          frames: 
+            - pan: { x: 2212, y: 0 }
+              time: 3000
+
+    actors:
+      - sprite: outside_immigration_bg1
+        position: { x: 0, y: 0 }
+
+      - sprite: outside_immigration_bg2
+        position: { x: 2560, y: 0 }
+
+      - sprite: outside_immigration_arms
+        position: { x: 3200, y: 145 }
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data: 
+              name: wave
+              options: { loop: true }
+
+      - sprite: prev_button
+        position: { x: 2422, y: 1280 }
+
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 6000
+              data: { name: fadeIn }
+          onClick:
+            action: prevScene
+
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+                   
+      - sprite: next_button
+        position: { x: 4502, y: 1280 }
+
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 6000
+              data: { name: fadeIn }
+          onClick:
+            action: nextScene
+
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000

@@ -1,0 +1,7 @@
+sprites:
+  english_2_bg: "/images/chapter_2/english_2_bg.jpg"
+
+scenes:
+  english_2:
+    background: english_2_bg
+    nextScene: english_3

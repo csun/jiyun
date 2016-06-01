@@ -1,0 +1,11 @@
+sprites:
+  intro_bg: "/images/chapter_1/intro_bg.jpg"
+
+scenes:
+  intro:
+    background: intro_bg
+    nextScene: planes
+
+    disabledControls:
+      - prev_scene_control
+

@@ -1,0 +1,142 @@
+sprites:
+  closet_bg: "/images/chapter_2/closet_bg.jpg"
+  closet_door_1: "/images/chapter_2/closet_door_1.png"
+  closet_door_2: "/images/chapter_2/closet_door_2.png"
+  closet_door_3: "/images/chapter_2/closet_door_3.png"
+  closet_door_4: "/images/chapter_2/closet_door_4.png"
+  closet_arrow: "/images/chapter_2/closet_arrow.png"
+
+scenes:
+  closet:
+    background: closet_bg
+    nextScene: sitting
+
+    disabledControls:
+      - prev_scene_control
+      - next_scene_control
+
+    actors:
+      - sprite: closet_door_1
+        position: { x: 260, y: 195 }
+
+        triggers:
+          onClick:
+            action: broadcastTrigger
+            data: { name: open }
+          open:
+            action: fade
+            data: 1
+
+
+      - sprite: closet_door_2
+        position: { x: 568, y: 185 }
+
+        triggers:
+          open:
+            action: fade
+            data: 1
+            delay: 1000
+
+
+      - sprite: closet_door_3
+        position: { x: 872, y: 180 }
+
+        triggers:
+          open:
+            action: fade
+            data: 1
+            delay: 2000
+
+
+      - sprite: closet_door_4
+        position: { x: 1188, y: 180 }
+
+        triggers:
+          open:
+            action: fade
+            data: 1
+            delay: 3000
+
+
+      - sprite: closet_arrow
+        position: { x: 275, y: 760 }
+
+        triggers:
+          onLoad:
+            action: startAnimation
+            data:
+              name: blink
+              options: { loop: true }
+          open:
+            action: startAnimation
+            data: { name: hide }
+          onClick:
+            action: broadcastTrigger
+            data: { name: open }
+
+        animations:
+          blink:
+            # We use fade instead of setHidden because it still allows the
+            # user to click when faded out.
+            frames:
+              - time: 1000
+              - fade: 1
+                time: 0
+              - time: 1000
+              - fade: -1
+                time: 0
+          hide:
+            frames:
+              - setHidden: true
+                time: 0
+
+
+      - sprite: prev_button
+        position: { x: 210, y: 1280 }
+
+        triggers:
+          onLoad:
+            - action: setHidden
+              data: true
+            - action: fade
+              data: 1
+          open:
+            - action: setHidden
+              data: false
+            - action: startAnimation
+              delay: 4000
+              data: { name: fadeIn }
+          onClick:
+            action: prevScene
+
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+
+
+      - sprite: next_button
+        position: { x: 2290, y: 1280 }
+
+        triggers:
+          onLoad:
+            - action: setHidden
+              data: true
+            - action: fade
+              data: 1
+          open:
+            - action: setHidden
+              data: false
+            - action: startAnimation
+              delay: 4000
+              data: { name: fadeIn }
+          onClick:
+            action: nextScene
+
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+

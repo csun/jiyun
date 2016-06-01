@@ -1,0 +1,103 @@
+sprites:
+  sitting_bg: "/images/chapter_2/sitting_bg.jpg"
+  sitting_fan:
+    type: spritesheet
+    file: "/images/chapter_2/sitting_fan.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      move:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 4
+  sitting_fruit:
+    type: spritesheet
+    file: "/images/chapter_2/sitting_fruit.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      move:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 0.5
+  sitting_man_fruit:
+    type: spritesheet
+    file: "/images/chapter_2/sitting_man_fruit.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      move:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 0.35
+  sitting_smoking:
+    type: spritesheet
+    file: "/images/chapter_2/sitting_smoking.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      move:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 0.3
+  sitting_coffee:
+    type: spritesheet
+    file: "/images/chapter_2/sitting_coffee.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      move:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 0.4
+
+scenes:
+  sitting:
+    background: sitting_bg
+    nextScene: questions
+
+    actors:
+      - sprite: sitting_fan
+        position: { x: 2040, y: 716 }
+
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data:
+              name: move
+              options: { loop: true }
+
+      - sprite: sitting_fruit
+        position: { x: 1970, y: 920 }
+
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data:
+              name: move
+              options: { loop: true }
+
+      - sprite: sitting_man_fruit
+        position: { x: 517, y: 659 }
+
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data:
+              name: move
+              options: { loop: true }
+
+      - sprite: sitting_smoking
+        position: { x: 694, y: 1170 }
+
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data:
+              name: move
+              options: { loop: true }
+
+      - sprite: sitting_coffee
+        position: { x: 1365, y: 647 }
+
+        triggers:
+          onLoad:
+            action: startSpriteAnimation
+            data:
+              name: move
+              options: { loop: true }

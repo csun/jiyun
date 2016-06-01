@@ -1,0 +1,145 @@
+sprites:
+  busy_street_bg: "/images/chapter_1/busy_street_bg.jpg"
+  busy_street_wall: "/images/chapter_1/busy_street_wall.png"
+  busy_street_cart:
+    type: spritesheet
+    file: "/images/chapter_1/busy_street_cart.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      move:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 1.5
+  busy_street_bike:
+    type: spritesheet
+    file: "/images/chapter_1/busy_street_bike.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      move:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 3.5
+  busy_street_women:
+    type: spritesheet
+    file: "/images/chapter_1/busy_street_women.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      move:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 2
+
+scenes:
+  busy_street:
+    background: busy_street_bg
+    nextScene: house
+
+    disabledControls:
+      - next_scene_control
+      - prev_scene_control
+
+    actors:
+      - sprite: prev_button
+        position: { x: 210, y: 1280 }
+
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 12000
+              data: { name: fadeIn }
+          onClick:
+            action: prevScene
+
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+                   
+      - sprite: next_button
+        position: { x: 2290, y: 1280 }
+
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 12000
+              data: { name: fadeIn }
+          onClick:
+            action: nextScene
+
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+
+      - sprite: busy_street_cart
+        position: { x: -1000, y: 1000 }
+
+        triggers:
+          onLoad:
+            - action: startSpriteAnimation
+              data:
+                name: move
+                options: { loop: true }
+            - action: startAnimation
+              data: { name: move }
+
+        animations:
+          move:
+            frames:
+              - moveRelative: { x: 4000, y: -1600 }
+                time: 20000
+
+      - sprite: forward_button
+        position: { x: 2000, y: 1000 }
+
+        triggers:
+          onClick:
+            action: changeScene
+            data: { destination: house }
+
+      - sprite: busy_street_bike
+        position: { x: -700, y: 1270 }
+
+        triggers:
+          onLoad:
+            - action: startSpriteAnimation
+              data:
+                name: move
+                options: { loop: true }
+
+            - action: startAnimation
+              data: { name: move }
+
+        animations:
+          move:
+            frames:
+              - moveRelative: { x: 4000, y: -1600 }
+                time: 10000
+
+      - sprite: busy_street_women
+        position: { x: -1400, y: 1800 }
+
+        triggers:
+          onLoad:
+            - action: startSpriteAnimation
+              data:
+                name: move
+                options: { loop: true }
+            - action: startAnimation
+              data: { name: move }
+
+        animations:
+          move:
+            frames:
+              - moveRelative: { x: 4000, y: -1600 }
+                time: 17000
+
+      # Put wall on top of everything to realistically block vision
+      - sprite: busy_street_wall
+        position: { x: 2405, y: 0 }

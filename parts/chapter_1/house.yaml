@@ -1,0 +1,73 @@
+sprites:
+  house_bg: "/images/chapter_1/house_bg.jpg"
+  house_rainbow:
+    type: spritesheet
+    file: "/images/chapter_1/house_rainbow.png"
+    frameCounts: { x: 2, y: 3 }
+    animations:
+      grow:
+        startFrame: { x: 0, y: 0 }
+        count: 6
+        fps: 3.5
+
+scenes:
+  house:
+    background: house_bg
+    nextScene: bow
+
+    disabledControls:
+      - next_scene_control
+      - prev_scene_control
+
+    actors:
+      - sprite: prev_button
+        position: { x: 210, y: 1280 }
+
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 6000
+              data: { name: fadeIn }
+          onClick:
+            action: prevScene
+
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+                   
+      - sprite: next_button
+        position: { x: 2290, y: 1280 }
+
+        triggers:
+          onLoad:
+            - action: fade
+              data: 1
+            - action: startAnimation
+              delay: 6000
+              data: { name: fadeIn }
+          onClick:
+            action: nextScene
+
+        animations:
+          fadeIn:
+            frames:
+              - fade: -1
+                time: 1000
+
+      - sprite: house_rainbow
+        position: { x: 700, y: 0 }
+
+        triggers:
+          onLoad:
+            - action: setHidden
+              data: true
+            - action: setHidden
+              delay: 1000
+              data: false
+            - action: startSpriteAnimation
+              delay: 1000
+              data: { name: grow }

@@ -1,0 +1,7 @@
+sprites:
+  return_gifts_bg: "/images/chapter_2/return_gifts_bg.jpg"
+
+scenes:
+  return_gifts:
+    background: return_gifts_bg
+    nextScene: guests_leave

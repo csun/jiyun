@@ -1,0 +1,35 @@
+sprites:
+  throw_bg: "/images/chapter_2/throw_bg.jpg"
+  throw_girl:
+    type: spritesheet
+    file: "/images/chapter_2/throw_girl.png"
+    frameCounts: { x: 1, y: 2 }
+    animations:
+      throw:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 1
+
+scenes:
+  throw:
+    background: throw_bg
+    nextScene: gifts
+
+    disabledControls:
+      - next_scene_control
+
+    actors:
+      - sprite: throw_girl
+        position: { x: 440, y: 50 }
+
+        triggers:
+          onLoad:
+            action: broadcastTrigger
+            data: { name: throw }
+          throw:
+            - action: startSpriteAnimation
+              data: { name: throw }
+            - action: broadcastTrigger
+              data: { name: throw }
+              delay: 4000
+

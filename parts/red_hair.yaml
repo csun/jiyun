@@ -1,7 +1,0 @@
-sprites:
-  red_hair_bg: "/images/red_hair_bg.jpg"
-
-scenes:
-  red_hair:
-    background: red_hair_bg
-    nextScene: in_car

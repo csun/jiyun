@@ -1,0 +1,7 @@
+sprites:
+  gifts_bg: "/images/chapter_2/gifts_bg.jpg"
+
+scenes:
+  gifts:
+    background: gifts_bg
+    nextScene: closet
