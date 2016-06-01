@@ -1,0 +1,40 @@
+sprites:
+  guests_bg: "/images/chapter_2/guests_bg.jpg"
+  bowing_girl:
+    type: spritesheet
+    file: "/images/chapter_2/bowing_girl.png"
+    frameCounts: { x: 2, y: 1 }
+    animations:
+      bow:
+        startFrame: { x: 0, y: 0 }
+        count: 2
+        fps: 1
+      idle:
+        startFrame: { x: 0, y: 0 }
+        count: 1
+        fps: 1
+
+scenes:
+  guests:
+    background: guests_bg
+    nextScene: gifts
+
+    actors:
+      - sprite: bowing_girl
+        position: { x: 1380, y: 604 }
+
+        triggers:
+          onLoad:
+            - action: broadcastTrigger
+              data: { name: bow }
+          bow:
+            - action: startSpriteAnimation
+              data:
+                name: bow
+                options: { loop: true }
+            - action: startSpriteAnimation
+              data: { name: idle }
+              delay: 2500
+            - action: broadcastTrigger
+              delay: 6000
+              data: { name: bow }

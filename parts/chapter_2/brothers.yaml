@@ -1,0 +1,7 @@
+sprites:
+  brothers_bg: "/images/chapter_2/brothers_bg.jpg"
+
+scenes:
+  brothers:
+    background: brothers_bg
+    nextScene: guests

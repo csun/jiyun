@@ -1,0 +1,24 @@
+entryScene: family
+sceneSize: { width: 2560, height: 1440 }
+
+sprites:
+  next_button: "/images/chapter_1/next_button.png"
+  prev_button: "/images/chapter_1/prev_button.png"
+
+controls:
+  next_scene_control:
+    sprite: next_button
+    position: { x: 2290, y: 1280 }
+
+    triggers:
+      onClick:
+        action: nextScene
+
+  prev_scene_control:
+    sprite: prev_button
+    position: { x: 210, y: 1280 }
+
+    triggers:
+      onClick:
+        action: prevScene
+

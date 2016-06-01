@@ -1,0 +1,7 @@
+sprites:
+  excused_bg: "/images/chapter_2/excused_bg.jpg"
+
+scenes:
+  excused:
+    background: excused_bg
+    nextScene: return_gifts

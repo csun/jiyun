@@ -1,0 +1,38 @@
+sprites:
+  english_1_bg: "/images/chapter_2/english_1_bg.jpg"
+  english_1_head:
+    type: spritesheet
+    file: "/images/chapter_2/english_1_head.png"
+    frameCounts: { x: 3, y: 1 }
+    animations:
+      talk:
+        startFrame: { x: 0, y: 0 }
+        count: 3
+        fps: 4
+      idle:
+        startFrame: { x: 0, y: 0 }
+        count: 1
+        fps: 0
+
+scenes:
+  english_1:
+    background: english_1_bg
+    nextScene: english_2
+
+    actors:
+      - sprite: english_1_head
+        position: { x: 230, y: 563 }
+
+        triggers:
+          talk:
+            - action: startSpriteAnimation
+              data: { name: talk }
+            - action: startSpriteAnimation
+              data: { name: idle }
+              delay: 1000
+            - action: broadcastTrigger
+              data: { name: talk }
+              delay: 4000
+          onLoad:
+            action: broadcastTrigger
+            data: { name: talk }

@@ -39,7 +39,7 @@ scenes:
             frames:
               - fade: -1
                 time: 1000
-                   
+
       - sprite: next_button
         position: { x: 2290, y: 1280 }
 
@@ -75,7 +75,7 @@ scenes:
               data: { name: bow }
             - action: startSpriteAnimation
               delay: 3000
-              data: 
+              data:
                 name: bow
                 options: { reverse: true }
 

@@ -1,0 +1,10 @@
+sprites:
+  family_bg: "/images/chapter_2/family_bg.jpg"
+
+scenes:
+  family:
+    background: family_bg
+    nextScene: brothers
+
+    disabledControls:
+      - prev_scene_control
