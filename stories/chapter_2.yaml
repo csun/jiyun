@@ -19,7 +19,7 @@ sprites:
           x: 0
           'y': 0
         count: 3
-        fps: 4
+        fps: 5
       idle:
         startFrame:
           x: 0
@@ -275,22 +275,12 @@ scenes:
           x: 230
           'y': 563
         triggers:
-          talk:
-            - action: startSpriteAnimation
-              data:
-                name: talk
-            - action: startSpriteAnimation
-              data:
-                name: idle
-              delay: 1000
-            - action: broadcastTrigger
-              data:
-                name: talk
-              delay: 4000
           onLoad:
-            action: broadcastTrigger
+            action: startSpriteAnimation
             data:
               name: talk
+              options:
+                loop: true
   english_2:
     background: english_2_bg
     nextScene: english_3
