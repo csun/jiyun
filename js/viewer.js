@@ -39,4 +39,4 @@ function startViewer(storyFile) {
 
     storyFile: storyFile
   });
-}
+};
