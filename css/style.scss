@@ -57,6 +57,13 @@ a:visited{
 	display: flex;
 }
 
+.chapter-nav {
+	width: 100%;
+	margin-bottom: 40px;
+	margin-top: -40px;
+	text-align: center;
+}
+
 .content {
 	width: 100%;
 	margin-bottom: 50px;
@@ -64,6 +71,9 @@ a:visited{
 
 @media (min-width: 850px) {
 	.content {
+		padding: 10px 60px 0px 60px;
+	}
+	.chapter-nav {
 		padding: 10px 60px 0px 60px;
 	}
 }

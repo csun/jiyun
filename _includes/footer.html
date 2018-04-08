@@ -1,5 +1,24 @@
 				</div>
 			</div>
+
+			{% if page.prev_chapter or page.next_chapter %}
+			<div class="pure-g">
+				<div class="chapter-nav">
+					<div class="pure-u-1-3">
+						{% if page.prev_chapter %}
+						<a href="{{ page.prev_chapter }}">Previous Chapter</a>
+						{% endif %}
+					</div>
+					<div class="pure-u-1-3"></div>
+					<div class="pure-u-1-3">
+						{% if page.next_chapter %}
+						<a href="{{ page.next_chapter }}">Next Chapter</a>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			{% endif %}
+
 		</div>
 
 		<footer class="footer">
